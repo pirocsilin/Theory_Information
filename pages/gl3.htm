@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Тема 3. Конспект лекций</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Теория информации</text> 
+  <text class = "visible-xs">ТИ</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+  <li><a href="lec_index.htm">Теория</a></li>
+   
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+    
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+<h3>3. Побуквенное кодирование</h3>
+<a href="#1" class=punkt>3.1 Определения и примеры </a><br>
+<a href="#2" class=punkt>3.2 Префиксные и разделимые коды </a><br>
+<a href="#3" class=punkt>3.3 Неравенство Крафта </a><br>
+<a href="#4" class=punkt>3.4 Неравенство МакМиллана </a><br>
+</div>
+<!--начало-->
+<a name=1 class="anchor"></a>
+<h3>3.1 Определения и примеры</h3>
+<p>В этом  параграфе приведены некоторые теоремы о свойствах побуквенного кодирования.  Одной из основных задач теории информации является построение кодов для  сообщений, порождаемых некоторым источником информации, для дальнейшей передачи  уже закодированных сообщений по каналу связи. Очевидным требованием к  кодированию сообщений источника является   условие однозначного декодирования, т.е. после получения закодированного  сообщения получатель должен иметь возможность прочитать исходное сообщение. В  данной главе рассматривается задача построения однозначно декодируемых кодов  без учета статистики источника информации, т.е. можно считать, что сообщения  источника независимы и равновероятны.</p>
+<p><strong>Определение.</strong> Пусть известны  алфавит  источника информации <img src="img/54.png" width="155" height="27" align="absmiddle"> и кодовый алфавит <img src="img/55.png" width="151" height="25" align="absmiddle"><em>.</em> <em>Кодирование сообщения</em>, которое порождает  источник информации, будем понимать как сопоставление кодовой  последовательности всему сообщению в целом или как построение кода сообщения из  кодов его частей (побуквенное кодирование). <br>
+  <strong>Пример 3.1</strong> Пусть <img src="img/54.png" width="155" height="27">, <img src="img/56.png" width="82" height="24" align="absmiddle">. Побуквенное кодирование символов источника <br>
+  <br>
+  <img src="img/57.png" width="103" height="103"><br>
+</p>
+<p><br>
+позволяет следующим образом  закодировать  сообщение</p>
+<p> <br>
+  <img src="img/58.png" width="221" height="26"></p>
+<p><br>
+  <strong>Пример 3.2</strong> Азбука Морзе. Входной алфавит – английский. Наиболее часто встречающиеся  буквы кодируются более короткими словами:</p>
+<p><br>
+  <img src="img/59.png" width="494" height="22"></p>
+<p><br>
+  <strong>Определение.</strong><em> Побуквенное  кодирование </em>задается <em>таблицей кодовых слов: <img src="img/60.png" width="376" height="27" align="absmiddle"></em> – конечные  последовательности в алфавите <em>B</em>. </p>
+<p><strong>Определение. </strong>Множество кодовых слов <img src="img/61.png" width="76" height="31" align="absmiddle"> называется <em>множеством элементарных кодов. </em>Используя  побуквенное кодирование, можно закодировать любое сообщение <img src="img/62.png" width="112" height="21" align="absmiddle"> следующим образом </p>
+<p>
+  <img src="img/63.png" width="295" height="23">,</p>
+<p><br>
+  т.е.  общий код сообщения складывается из элементарных кодов символов входного  алфавита.</p>
+
+<p><strong>Определение.</strong> Количество  букв в слове (последовательности символов)  <img src="img/65.png" width="123" height="20" align="absmiddle"> называется <em>длиной слова</em>. (Обозначение <img src="img/64.png" width="60" height="22" align="absmiddle">) Пустое слово, т.е. слово, не содержащее ни одного символа  обозначается <img src="img/66.png" width="15" height="27">. Если <img src="img/67.png" width="76" height="29" align="absmiddle"><em>,</em> то <img src="img/68.png" width="20" height="28" align="absmiddle"> – <em>начало (префикс)</em> слова  <img src="img/69.png" width="54" height="22" align="absmiddle"><em>, </em> – <em>окончание (постфикс)</em> слова <img src="img/70.png" width="14" height="16" align="absmiddle"><em>.</em></p>
+<br>
+<a name=2 class="anchor"></a>
+<h3>3.2 Префиксные и разделимые коды</h3>
+
+<p><strong>Определение. </strong>Побуквенный код называется <em>разделимым</em> (или <em>однозначно декодируемым</em>), если любое сообщение из символов алфавита  источника, закодированное этим кодом, может быть однозначно декодировано, т.е. <br>
+  если <em><img src="img/71.png" width="172" height="28" align="absmiddle"></em>, то  <img src="img/73.png" width="44" height="22" align="absmiddle"> и при любых <img src="img/72.png" width="144" height="25" align="absmiddle">.</p>
+<p> При разделимом кодировании  любое кодовое слово единственным образом разлагается на элементарные коды.</p>
+<p><strong>Пример</strong> <strong>3.2.1</strong>  Код из примера 3.1 не  является разделимым, поскольку кодовое слово 010010 может быть декодируемо  двумя способами: <img src="img/74.png" width="43" height="18" align="absmiddle">  или <img src="img/75.png" width="64" height="18" align="absmiddle">.</p>
+<p><strong>Определение.</strong>Побуквенный код называется <em>префиксным</em>, если в его множестве кодовых  слов ни одно слово не является началом другого, т.е. элементарный код одной  буквы не является префиксом элементарного кода другой буквы.</p>
+<p><strong>Пример 3.2.2.</strong> Код из примера 3.1 не является префиксным, поскольку элементарный код  буквы <img src="img/76.png" width="24" height="19" align="absmiddle"> является префиксом элементарного кода  буквы <img src="img/77.png" width="20" height="19" align="absmiddle">.</p>
+<p><strong>Утверждение.</strong> <em>Префиксный код является  разделимым.</em></p>
+<p><strong>Доказательство </strong>(от противного). Пусть префиксный код не является разделимым. Тогда  существует такая кодовая последовательность <img src="img/78.png" width="17" height="22" align="absmiddle">,  что она представлена различными способами из элементарных кодов: <img src="img/79.png" width="259" height="26" align="absmiddle"> (побитовое  представление одинаковое) и существует <em>L</em> такое, что при любом <img src="img/80.png" width="45" height="24"> следует <img src="img/81.png" width="80" height="26" align="absmiddle"> и при любом <img src="img/82.png" width="48" height="19">,  <img src="img/83.png" width="81" height="26" align="absmiddle">, т.е. начало каждого из этих представлений имеет одинаковую  последовательность элементарных кодов. Уберем эту часть. Тогда <img src="img/84.png" width="175" height="26" align="absmiddle">, т.е. последовательности элементарных кодов разные и  существует такой элементарный код <img src="img/85.png" width="23" height="25" align="absmiddle">, что <img src="img/86.png" width="110" height="28" align="absmiddle"> или <img src="img/87.png" width="106" height="28" align="absmiddle">, т.е.  <img src="img/88.png" width="29" height="26" align="absmiddle"> – начало <img src="img/89.png" width="34" height="27" align="absmiddle">, или наоборот. Получили противоречие с префиксностью кода.</p>
+<p><strong>Пример 3.2.3. </strong>Заметим, что разделимый код может быть не префиксным. </p>
+<p>Пусть <img src="img/90.png" width="183" height="24" align="absmiddle">. Пример разделимого, но не префиксного кода:</p>
+
+<p>  <em><img src="img/91.png" width="183" height="28"></em></p>
+<br>
+<a name=3 class="anchor"></a>
+<h3>3.3 Неравенство Крафта</h3>
+<p><strong>Теорема</strong><em> (Крафт)</em>. <em>Для того, чтобы существовал побуквенный двоичный префиксный код с  длинами кодовых слов <img src="img/92.png" width="64" height="20" align="absmiddle"> необходимо и  достаточно, чтобы </em></p>
+<p>
+    <em><img src="img/93.png" width="87" height="48"></em></p>
+
+<p><strong>Доказательство. </strong>Докажем необходимость. Пусть существует префиксный код с длинами<em><img src="img/92.png" width="64" height="20" align="absmiddle"></em>. Рассмотрим полное двоичное дерево. Каждая вершина закодирована  последовательностью нулей и единиц (как показано на рисунке). </p>
+
+<p><img src="img/94.png" width="322" height="219"></p>
+<p>Рисунок 2  Полное  двоичное дерево с помеченными вершинами </p>
+<p>&nbsp;</p>
+<p>В этом дереве выделим вершины, соответствующие  кодовым словам. Тогда любые два поддерева, соответствующие кодовым вершинам  дерева, не пересекаются, т.к. код префиксный. У <em>i</em>-того поддерева на <em>r</em>-том уровне – <img src="img/95.png" width="57" height="27"> вершин.  Всего вершин в поддереве <img src="img/96.png" width="21" height="19">. Тогда&nbsp; <img src="img/97.png" width="107" height="51" align="absmiddle">, <img src="img/98.png" width="226" height="51" align="absmiddle">.</p>
+<p>Докажем достаточность  утверждения. Пусть существует набор длин кодовых слов такой, что <img src="img/99.png" width="93" height="52" align="absmiddle">. Рассмотрим полное двоичное дерево с помеченными вершинами.  Пусть длины кодовых слов упорядочены по возрастанию <em><img src="img/100.png" width="138" height="22" align="absmiddle"></em>. Выберем в двоичном дереве вершину <img src="img/101.png" width="19" height="22" align="absmiddle"> на уровне <img src="img/102.png" width="20" height="21" align="absmiddle">. Уберем поддерево с корнем в вершине <img src="img/101.png" width="19" height="22" align="absmiddle">. В оставшемся дереве возьмем   вершину <img src="img/103.png" width="21" height="21" align="absmiddle"> на уровне <img src="img/104.png" width="18" height="22" align="absmiddle"> и удалим поддерево с корнем в этой вершине  и т.д. Последовательности, соответствующие вершинам <em><img src="img/105.png" width="96" height="22" align="absmiddle"></em> образуют  префиксный код. Теорема доказана.<br>
+<strong>Пример 3.3.1</strong>. Построить префиксный код с длинами <img src="img/106.png" width="188" height="22" align="absmiddle">  для алфавита <img src="img/107.png" width="126" height="22" align="absmiddle"><em>.</em> Проверим  неравенство Крафта для набора длин </p>
+<p>
+  <img src="img/108.png" width="145" height="49"></p>
+<p>
+  Неравенство выполняется и,  следовательно, префиксный код с таким набором длин кодовых слов существует.  Рассмотрим полное двоичное дерево с <img src="img/109.png" width="17" height="20"> помеченными  вершинами и выберем вершины дерева, как описано выше в доказательстве теоремы  Крафта. Тогда элементарные коды могут быть такими: <img src="img/110.png" width="227" height="23" align="absmiddle">.  (Возможен и другой выбор элементарных кодов). Нетрудно  видеть, что полученный код является префиксным, поскольку ни одно кодовое слово  не является префиксом другого кодового слова.</p>
+<p>
+  <img src="img/111.png" width="381" height="267">&nbsp;</p>
+
+<p>Рисунок 3 Построение префиксного кода с заданными длинами </p>
+<p>&nbsp;</p>
+<p>Процесс декодирования может  быть организован следующим образом. Просматриваем полученное сообщение,  двигаясь по дереву. Если попадем в кодовую вершину, то выдаем соответствующую  букву и возвращаемся в корень дерева и т.д. </p>
+<br>
+<a name=4 class="anchor"></a>
+<h3>3.4 Неравенство МакМиллана</h3>
+<p>Теорема Крафта, доказанная в  предыдущем параграфе, может быть обобщена на случай разделимых кодов.</p>
+<p>  <strong>Теорема</strong><em> (МакМиллан). Для того чтобы  существовал побуквенный двоичный разделимый код с длинами кодовых слов <img src="img/92.png" width="64" height="20" align="absmiddle">, необходимо и достаточно, чтобы <img src="img/93.png" width="87" height="48" align="absmiddle"></em></p>
+<p><strong>Доказательство<em>.</em></strong>Покажем  достаточность. Если выполнено неравенство для набора чисел <img src="img/92.png" width="64" height="20" align="absmiddle">, то  по теореме Крафта  существует префиксный код с длинами <em><img src="img/92.png" width="64" height="20" align="absmiddle"></em> и это код является  разделимым.</p>
+<p>Докажем необходимость  утверждения. Рассмотрим тождество</p>
+<p><br>
+  <img src="img/112.png" width="328" height="44"></p>
+<p>  Положим <img src="img/113.png" width="76" height="27">. Тогда тождество можно переписать следующим образом</p>
+<p><img src="img/114.png" width="545" height="62"></p>
+<p><br>
+  где <img src="img/115.png" width="104" height="32" align="absmiddle">, <img src="img/116.png" width="25" height="23" align="absmiddle">– число всевозможных представлений числа <em>j</em> в виде суммы <img src="img/117.png" width="124" height="28" align="absmiddle">. Сопоставим каждому представлению числа <em>j</em> в виде суммы последовательность  нулей и единиц длины <em>j</em> по  следующему правилу</p>
+<p><br>
+  <img src="img/118.png" width="228" height="30"></p>
+<p><br>
+  где <img src="img/119.png" width="18" height="20">– элементарный код длины <em>s</em>. Тогда различным  представлениям числа <em>j</em> будут соответствовать  различные кодовые слова, поскольку код является разделимым. Таким образом, <img src="img/120.png" width="74" height="30" align="texttop"> и <em><img src="img/121.png" width="293" height="62" align="absmiddle">. </em>Используя предельный переход получим <img src="img/122.png" width="182" height="52" align="absmiddle"> при <img src="img/123.png" width="55" height="13">. Теорема доказана.</p>
+
+<p><strong>Пример 3.4.1.</strong> Азбука Морзе – это схема алфавитного кодирования</p>
+<p><img src="img/124.png" width="695" height="97"><br>
+</p>
+<p>  
+  Неравенство МакМиллана для  азбуки Морзе не выполнено, поскольку</p>
+<p>
+  <img src="img/125.png" width="337" height="52"></p>
+<p>
+  Следовательно, этот код не  является разделимым, тем менее азбука Морзе успешно используется для передачи  сообщений, которые однозначно декодируются получателем. Это возможно, поскольку  на самом деле в азбуке Морзе имеются дополнительные элементы – паузы между  буквами (и словами), которые позволяют декодировать сообщение. Эти  дополнительные элементы определены неформально, поэтому прием и передача  сообщений (особенно с высокой скоростью) является некоторым искусством, а не  простой технической процедурой.</p>
+<p>&nbsp;</p>
+<br><br>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="gl2.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="lec_index.htm"></a></li>
+		 <li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="gl4.htm"></a></li>
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

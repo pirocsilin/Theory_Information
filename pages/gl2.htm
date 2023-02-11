@@ -1,0 +1,1143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Тема 2. Конспект лекций</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Теория информации</text> 
+  <text class = "visible-xs">ТИ</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+  <li><a href="lec_index.htm">Теория</a></li>
+   
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+    
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+
+
+<h3>2. Вероятностный подход к измерению количества информации</h3>
+<a href="#1" class=punkt>2.1 Виды информации </a><br>
+<a href="#2" class=punkt>2.2 Оценка количества информации сообщений</a><br> 
+<a href="#3" class=punkt>2.3 Энтропия. Свойства энтропии </a><br>
+<a href="#4" class=punkt>2.4 Условная энтропия. Свойства условной энтропии </a><br>
+<a href="#5" class=punkt>2.5 Энтропия объединения. Свойства энтропии объединения</a><br>
+<a href="#6" class=punkt>2.6 Относительная энтропия и избыточность сообщения</a><br>
+<a href="#7" class=punkt>2.7 Тестовые вопросы
+</a><br>
+</div>
+<!--начало-->
+<a name=1 class="anchor"></a>
+<h3>2.1 Виды информации </h3>
+
+<p>Информация может  быть двух видов: дискретная (цифровая) и непрерывная (аналоговая). Дискретная  информация характеризуется последовательными точными значениями некоторой  случайной величины, а непрерывная – непрерывным процессом изменения некоторой  случайной величины (сигнала). Непрерывную информацию может, например, выдавать  датчик атмосферного давления и датчик скорости автомашины. </p>
+<p><br>
+  <img src="img/5.png" alt="" width="414" height="351"></p>
+<p>&nbsp;</p>
+
+<p>Дискретную  информацию можно получить, измеряя непрерывную информацию через определенные интервалы  времени. Чем короче эти временные интервалы (периоды дискретизации), тем точнее  происходит перевод непрерывной информации в дискретную. Однако с уменьшением  периода дискретизации растет и размер дискретных данных, и, следовательно,  сложность их обработки, передачи и хранения. Таким образом, необходимо выбирать  достаточно небольшой временной интервал с одной стороны для точной  дискретизации непрерывной информации, а с другой –  процесс дискретизации не должен быть слишком  трудоемким. В дальнейшем, будет всегда рассматриваться дискретная информация.</p>
+<p>Дискретная  информация удобнее для обработки, хранения и  передачи, поскольку она описывается последовательностью чисел. Если  представить  каждое число в двоичной  системе счисления, то дискретная информация предстанет в виде  последовательности нулей и единиц. Одна позиция для двоичной цифры в описании  дискретной информации называется <em>битом</em>.  Бит служит для измерения информации. <em>Байт </em>– это набор из 8 битов.</p>
+<p><strong>Пример 2.1.1</strong>. Сколько битов  потребуется,  чтобы размесить в памяти компьютера фразу «Я не горку шла»?</p>
+<p>Поскольку каждый символ  имеет ASCII-код объемом 8 битов, то всего потребуется 14 символов x 8 битов = 112  битов.</p>
+<p>&nbsp;</p>
+<a name=2 class="anchor"></a>
+<h3>2.2 Оценка количества информации сообщений</h3>
+<p>Большой класс  дискретных сообщений, передаваемых по каналам связи, можно представить как  набор из <em>n</em> символов (элементов),  которые последовательно порождает некоторый источник информации. Элементы  сообщения могут принимать значения из некоторого конечного алфавита мощности <em>m</em>. Элементами сообщений могут быть импульсы тока или  напряжения, символы текста, биты и др.</p>
+<p>Определим  количество различных сообщений, которые можно составить из<em> n</em> символов, принимающих  любое из<em> m </em> различных  фиксированных значений. Первый элемент сообщения может принимать <em>m</em> значений, второй –  также <em>m</em> значений и т.д. Тогда  общее количество различных сообщений равно</p>
+<p><img src="img/6.png" alt="" width="68" height="24"></p>
+<p>  Чем больше <em>L</em>, тем значительней отличается каждое данное сообщение от  остальных, т. е. величина <em>L</em> может служить мерой  количества информации для равновероятных сообщений. Однако более удобной мерой  количества информации является логарифм числа возможных сообщений (здесь и  далее <img src="img/7.png" alt="" width="132" height="27" align="absmiddle">)</p>
+<p><img src="img/8.png" alt="" width="295" height="23"></p>
+<p>Логарифмическая мера <em>I(L)</em> количества информации  обладает следующими свойствами </p>
+<p><img src="img/9.png" alt="" width="318" height="94"></p>
+
+<p>Последнее соотношение  выражает свойство аддитивности количества информации, т.е. количество  информации нескольких независимых источников сообщений равно сумме количеств  информации каждого источника</p>
+
+<p><strong>Пример 2.2.1.</strong> Определить  количество информации, которое содержится в телевизионном сигнале,  соответствующем одному кадру развертки. В кадре 625 строк, а сигнал,  соответствующий одной строке, представляет собой последовательность из 600  случайных по амплитуде импульсов, причем амплитуда импульса может принять любое  из 8 значений с шагом в 1 В.</p>
+
+<p><strong>Решение</strong>. В рассматриваемом случае длина сообщения, соответствующая  одной строке, равна числу случайных по амплитуде импульсов в ней, т.е. <em>n=600</em>.</p>
+<p>Каждый элемент сообщения может принимать любое из 8  значений амплитуды импульса, т.е. <em>m=8</em>. <br>
+Количество информации в одной строке</p>
+<p>  <img src="img/10.png" alt="" width="346" height="28"></p>
+<p>а общее количество информации в кадре <img src="img/11.png" alt="" width="237" height="22" align="absmiddle"> бит или 137,33&nbsp;Кб.</p>
+
+<p><strong>Пример 2.2.2</strong>. Определить минимальное число взвешиваний, которое  необходимо произвести на равноплечих весах, чтобы среди 27 внешне неотличимых  монет найти одну фальшивую, более легкую.</p>
+
+<p><strong>Решение.</strong> Так как монеты внешне неотличимые, то они  представляют источник с равновероятными состояниями, а общая информация такого источника<img src="img/12.png" alt="" width="193" height="25" align="absmiddle"> бит.</p>
+<p> Каждое взвешивание имеет один  из трех возможных исходов: левая чаша весов легче, правая чаша весов легче,  весы находятся в равновесии. Так как все исходы равновероятны (нельзя заранее  отдать предпочтение одному из них), то результат одного взвешивания  представляет источник с тремя равновероятными состояниями, а общее количество  информации такого источника составляет <img src="img/13.png" alt="" width="46" height="25" align="absmiddle"> бит.</p>
+<p>Так как количество информации  отвечает требованию аддитивности и при этом <img src="img/14.png" alt="" width="132" height="23" align="absmiddle">, то для  определения фальшивой монеты достаточно произвести три взвешивания.</p>
+<p>Алгоритм определения  фальшивой монеты следующий. При первом взвешивании на каждую чашку весов  кладется по девять монет. Фальшивая монета будет либо среди тех девяти монет, которые  оказались легче, либо среди тех, которые не взвешивались, если имело место равновесие.  Аналогично, после второго взвешивания число монет, среди которых находится  фальшивая монета, сократится до трех. Последнее, третье, взвешивание дает  возможность точно указать фальшивую монету.</p>
+<p>Рассмотренная выше оценка информации основана на предположении  о равновероятности всех знаков алфавита источника информации. Рассмотрим теперь сообщения  длины <em>n</em>, символы  которого  порождаются  независимо некоторым  источником информации в соответствии с распределением дискретной случайной  величины, т.е. элементы сообщения могут принимать значения <img src="img/15.png" alt="" width="120" height="21" align="absmiddle"> с вероятностями<img src="img/16.png" alt="" width="120" height="21" align="absmiddle"> соответственно, <img src="img/17.png" alt="" width="82" height="61" align="absmiddle">. Вычислим среднюю вероятность такого сообщения.</p>
+<p>Обозначим <img src="img/18.png" alt="" width="23" height="22" align="absmiddle"> количество элементов  сообщения, принимающих значение <img src="img/19.png" alt="" width="25" height="23" align="absmiddle">, <img src="img/20.png" alt="" width="92" height="22" align="absmiddle">. Очевидно, что <img src="img/21.png" alt="" width="88" height="60" align="absmiddle">. Поскольку элементы сообщения принимают значения независимо,  то вероятность сообщения равна <img src="img/22.png" alt="" width="68" height="59" align="absmiddle">.</p>
+<p>При достаточно  больших <em>n</em> по теореме Бернулли  допустимо такое приближение  <img src="img/23.png" alt="" width="72" height="47" align="absmiddle"> или <img src="img/24.png" alt="" width="81" height="19"> и тогда <img src="img/25.png" alt="" width="160" height="58" align="absmiddle">. Последняя формула выражает среднюю вероятность сообщения. <br>
+По средней  вероятности подсчитаем среднее число всех возможных сообщений <img src="img/26.png" alt="" width="111" height="87" align="absmiddle">. Зная среднее число <em>L</em> всех возможных  сообщений, определим и среднее количество информации<em> I(L)</em>, содержащееся в одном сообщении </p>
+<p><img src="img/27.png" width="403" height="61">.</p>
+
+<p> Последнее  соотношение было получено Шенноном для определения среднего количества  информации в сообщении с произвольными вероятностями появления состояний. При  равновероятных состояниях элементов сообщений, т.е. <img src="img/28.png" width="74" height="52" align="absmiddle">, формула Шеннона превращается в уже знакомую формулу <img src="img/29.png" width="125" height="27" align="absmiddle">.</p>
+<p><strong>Пример 2.2.3</strong>. Источник  информации <em>A</em> порождает сообщения,  состоящие из символов <img src="img/30.png" width="110" height="22" align="absmiddle"> с вероятностями  <img src="img/31.png" width="348" height="28" align="absmiddle">. <strong> </strong>Сравнить количество информации, приходящуюся на букву  источника информации <em>A</em>  с количеством  информации, которая была бы у того же источника при равновероятном использовании  букв.</p>
+
+<p><strong>Решение. </strong>При  одинаковых вероятностях появления любой из всех <em>m=4</em>  букв алфавита количество  информации, приходящуюся на одну букву, характеризует  величина  <img src="img/32.png" width="82" height="26" align="absmiddle"> бит.<br>
+Найдем количество информации  источника <em>A</em>. </p>
+<p><img src="img/33.png" width="800" height="60"></p>
+<p><img src="img/34.png" width="102" height="25" align="absmiddle"> бит</p>
+<p>Таким  образом, неравномерность распределения вероятностей использования букв снижает  количество информации  источника с 2 до 1.37  бит</p>
+<br>
+<a name=3 class="anchor"></a>
+<h3>2.3 </a>Энтропия. Свойства энтропии</h3>
+<p><strong>Определение.</strong> Количество информации <em>I(L)</em>, содержащееся в сообщении, зависит от длины сообщения <em>n</em>, числа возможных состояний <em>m</em> и вероятностей  состояний <img src="img/35.png" width="209" height="57" align="absmiddle">. Поскольку <em>I(L)</em> от величины <em>n</em> зависит линейно, то в  теории информации используют удельное количество информации, приходящееся на  один символ сообщения. Эта величина называется <em>энтропией Шеннона</em></p>
+<p>
+<img src="img/36.png" width="456" height="58"></p>
+<p>
+  Рассмотрим  основные свойства энтропии.</p>
+<ol>
+  <li>Если <em>m=1</em>, т.е. передается сообщение с одним символом и вероятность  его появления равна 1, то <img src="img/37.png" width="188" height="29" align="absmiddle"> Таким образом если  сообщение достоверно известно, то энтропия такого сообщения минимальна и равна  0. </li>
+  <li>Если для <em>k</em>-ого символа алфавита <img src="img/38.png" width="59" height="22" align="absmiddle">, то, используя правило Лопиталя, можно доказать, что <img src="img/39.png" width="129" height="58" align="absmiddle">. Таким образом, при малых значениях вероятности <img src="img/40.png" width="25" height="26">, слагаемые, содержащие <img src="img/40.png" width="25" height="26">, не играют существенной роли в выражении энтропии. Так как  при малых вероятностях  появления  <em>k</em>-ого состояния легко предсказать его отсутствие в сообщении  и, наоборот, при больших вероятностях  <em>k</em>-ого состояния легко предсказать его наличие в сообщении, то  в обоих  случаях величина  неопределенности, существующей до получения сообщения, будет мала.  Соответственно,  невелико и количество  информации при снятии этой неопределенности.</li>
+  <li>Если <em>m=2</em> и <img src="img/41.png" width="162" height="24" align="absmiddle"> то выражение для  энтропии принимает вид </li>
+</ol>
+<p><img src="img/42.png" width="339" height="25"></p>
+<p>Энтропия  двоичного сообщения изменяется от 0 до 1 и достигает максимума при равных  вероятностях <img src="img/43.png" width="142" height="25" align="absmiddle">, т.е. когда ситуация  является наиболее неопределенной. </p>
+
+<p><img src="img/44.png" width="434" height="410"> </p>
+<p>
+  Если <em>m&gt;2</em>, то максимальное значение энтропии <img src="img/45.png" width="50" height="25" align="absmiddle"> также достигается  в  случае равновероятных состояний элементов <img src="img/46.png" width="94" height="52" align="absmiddle"></p>
+<p>4. Энтропия сообщения, состоящего из некоторых частных независимых  сообщений, равна сумме энтропий составляющих его частей. </p>
+
+<p>Действительно,  пусть имеются два независимых сообщения <em>A</em> и <em>B</em> с энтропиями <em>H(A)</em> и <em>H(B)</em> соответственно.  Вероятность совместного события <em>AB</em> равна произведению вероятностей  событий <em>A</em> и <em>B</em> <em>p(AB)=p(A)</em>p(B). Тогда </p>
+<p>
+  <img src="img/47.png" width="727" height="99"></p>
+
+<p>Это свойство энтропии, известное как правило сложения  энтропий, хорошо согласуется со смыслом энтропии как меры неопределенности.  Правило сложения энтропий распространяется и на большее число сообщений.</p>
+<p><strong>Пример 2.3.4.</strong> В  таблицах заданы распределения вероятностей двух случайных дискретных величин <em>X</em> и <em>Y</em></p>
+<p><img src="img/48.png" width="466" height="139"></p>
+<p align="center">&nbsp;</p>
+<p>Сравнить энтропии данных  случайных величин.</p>
+<p><strong>Решение</strong>.  Энтропия не зависит от конкретных значений случайной величины. Так как вероятности  появления символов  в обоих случаях одинаковы, то</p>
+<p>
+  <img src="img/49.png" width="544" height="62"> </p>
+<br>
+<a name=4 class="anchor"></a>
+<h3>2.4 Условная энтропия. Свойства условной энтропии</h3>
+
+<p>Согласно правилу
+сложения энтропий количество информации, содержащееся в двух различных
+независимых сообщениях, равно сумме количеств информации, содержащихся в
+отдельных сообщениях. Однако если сообщение содержит часть другого сообщения,
+то количество информации от двух таких сообщений не будет
+равно сумме количеств информации от каждого сообщения по отдельности, а будет
+меньше. Большое значение для определения количества информации, содержащейся в
+статистически зависимых сообщениях, имеет понятие <i>условной энтропии</i>.</p>
+
+<p>Пусть имеются
+два источника информации. Первый источник <img width=21 height=19
+src="img/image002.gif"> порождает символы <img width=89 height=25
+src="img/image004.gif"> с вероятностями <img width=168 height=25
+src="img/image006.gif">, а второй источник <img width=16 height=19
+src="img/image008.gif"> порождает символы  <img width=89 height=25
+src="img/image010.gif"> с вероятностями <img width=168 height=25
+src="img/image012.gif">. поскольку сообщения зависимы, то заданного символа <img width=21 height=25
+src="img/image014.gif"> вероятности
+появления <img width=89 height=25
+src="img/image010.gif"> определяются условными
+вероятностями</p>
+
+<p><img width=356 height=28
+src="img/image016.gif"></p>
+
+<p>Для фиксированного символа <img width=21 height=25
+src="img/image014.gif"> совокупность условных
+вероятностей определяет частную условную энтропию</p>
+
+<p><img width=301 height=57
+src="img/image018.gif"></p>
+
+<p>которая характеризует
+информативность сообщений <img width=16 height=19
+src="img/image008.gif"> после того, как стало
+известен символ <img width=21 height=25
+src="img/image014.gif">. Если частную условную энтропию усреднить по всем
+значениям <img width=21 height=25
+src="img/image014.gif">, то найдем общую условную энтропию сообщений <img width=16 height=19
+src="img/image008.gif"> относительно сообщений
+<img width=21 height=19
+src="img/image002.gif"></p>
+
+<p><img width=239 height=55
+src="img/image020.gif"></p>
+
+<p>С учетом выражений для
+частных условных энтропий можно получить такое выражение</p>
+
+<p><img width=365 height=57
+src="img/image022.gif"></p>
+
+<p>Известно, что
+вероятность совместного появления двух статистически зависимых случайных
+величин <img width=21 height=25
+src="img/image014.gif"> и <img width=23 height=28
+src="img/image024.gif"> определяется
+равенством</p>
+
+<p><img width=212 height=28
+src="img/image026.gif"></p>
+
+<p>Поэтому
+окончательное выражение для условной энтропии можно записать так</p>
+
+<p><img width=317 height=57
+src="img/image028.gif"></p>
+
+<p>Основной смысл
+средней условной энтропии состоит в том, что показывает, какую энтропию дают
+сообщения <img width=16 height=19
+src="img/image008.gif">, когда уже известна энтропия сообщений <img width=21 height=19
+src="img/image002.gif"></p>
+
+<p>Приведем
+основные свойства условной энтропии.</p>
+
+<p>1. Если сообщения <img width=21 height=19
+src="img/image002.gif"> и <img width=16 height=19
+src="img/image008.gif"> статистически
+независимы, то условная энтропия сообщений <img width=16 height=19
+src="img/image008.gif"> относительно сообщений
+<img width=21 height=19
+src="img/image002.gif"> равна безусловной
+энтропии сообщений <img width=16 height=19
+src="img/image008.gif">, т.е. <img width=132 height=24
+src="img/image030.gif"></p>
+
+<p>2. Если сообщения <img width=21 height=19
+src="img/image002.gif"> и <img width=16 height=19
+src="img/image008.gif"> статистически жестко
+зависимые, т.е. появление одного из них непременно влечет появление другого, то
+условная энтропия сообщений <img width=16 height=19
+src="img/image008.gif"> относительно сообщений
+<img width=21 height=19
+src="img/image002.gif"> равна нулю, т.е. <img width=100 height=24
+src="img/image032.gif"></p>
+<p><b>Пример 2.4.1</b>. Известны энтропии
+двух зависимых источников информации <img width=21 height=19
+src="img/image002.gif"> и <img width=16 height=19
+src="img/image008.gif">: <img width=77 height=24
+src="img/image034.gif"> бит, <img width=81 height=24
+src="img/image036.gif"> бит.
+Определить, в каких пределах может изменяться величины условных энтропий <img width=72 height=24
+src="img/image038.gif"> и <img width=72 height=24
+src="img/image040.gif">.</p>
+
+<p><b>Решение.</b> На
+рисунках представлены различные варианты взаимосвязей энтропий источников <img width=21 height=19
+src="img/image002.gif"> и <img width=16 height=19
+src="img/image008.gif">.</p>
+
+<p>При
+отсутствии взаимосвязи между источниками информации:</p>
+
+<p>&nbsp;</p>
+
+<p><img
+width=508 height=195 src="img/image041.gif" v:shapes="_x0000_s1026 _x0000_s1027 _x0000_s1028 _x0000_s1029 _x0000_s1030"></p>
+<br>
+<p>Если
+источники информации независимы, то <img width=167 height=24
+src="img/image043.gif"> бит,
+а <img width=163 height=24
+src="img/image045.gif">&nbsp;бит. И эти значения условных энтропий
+являются максимальными. </p>
+<p>По мере увеличения взаимосвязи источников условные энтропии <img width=72 height=24
+src="img/image038.gif"> и <img width=72 height=24
+src="img/image040.gif"> будут уменьшаться:</p>
+
+<p><img width=348 height=165 src="img/image048.gif" v:shapes="_x0000_s1052 _x0000_s1031 _x0000_s1032 _x0000_s1033 _x0000_s1034 _x0000_s1035 _x0000_s1036 _x0000_s1037 _x0000_s1038 _x0000_s1039 _x0000_s1048 _x0000_s1051"></p>
+
+<br>
+<p>При полной статистической зависимости двух источников один из
+них не вносит никакой информации, поскольку при появлении <img width=21 height=25
+src="img/image014.gif"> неизбежно следует <img width=23 height=28
+src="img/image024.gif">, т.е. <img width=103 height=28
+src="img/image052.gif"> при <img width=43 height=24
+src="img/image054.gif"> и <img width=99 height=25
+src="img/image056.gif">. Поэтому</p>
+
+<p><img width=320 height=184
+src="img/image057.gif"></p>
+
+<p>При этом <img width=257 height=24
+src="img/image060.gif">&nbsp;бит.
+Поэтому <img width=72 height=24
+src="img/image038.gif"> будет изменяться от 10 бит до 5 бит при
+максимально возможном изменении <img width=72 height=24
+src="img/image040.gif"> от 5 бит до 0 бит.</p>
+<br>
+<a name=5 class="anchor"></a>
+<h3>2.5 Энтропия объединения. Свойства энтропии объединения</h3>
+
+<p><b>Определение.</b> Энтропия объединения двух
+источников сообщений <img width=21 height=19
+src="img/p2_5/image002.gif"> и <img width=16 height=19
+src="img/p2_5/image004.gif"> определяется суммой по всем возможным состояниям объединения </p>
+
+<p><img width=309 height=57
+src="img/p2_5/image006.gif"></p>
+
+<p>где <img width=75 height=28
+src="img/p2_5/image008.gif"> – вероятность
+совместного появления двух статистически зависимых состояний <img width=21 height=25
+src="img/p2_5/image010.gif"> и <img width=23 height=28
+src="img/p2_5/image012.gif"></p>
+
+<p>Поскольку
+вероятность совместного появления двух состояний может быть выражена через
+вероятность появления одного из состояний и условную вероятность появления
+другого состояния равенством <img width=212 height=28
+src="img/p2_5/image014.gif"> </p>
+
+<p><img width=431 height=57
+src="img/p2_5/image016.gif"></p>
+
+<p><img width=543 height=57
+src="img/p2_5/image018.gif"></p>
+
+<p>Первая сумма в
+соотношении представляет собой энтропию сообщений ><img width=21 height=19
+src="img/p2_5/image002.gif"> (поскольку <img width=125 height=57
+src="img/p2_5/image021.gif">), а вторая сумма – условную энтропию <img width=72 height=24
+src="img/p2_5/image023.gif">. Таким образом, окончательно имеем </p>
+
+<p><img width=219 height=24
+src="img/p2_5/image025.gif"></p>
+
+<p>Аналогично можно получить симметричное соотношение <img width=215 height=24
+src="img/p2_5/image027.gif"></p>
+
+<p>Приведем
+основные свойства энтропии объединения.</p>
+
+<p>1. <img width=151 height=24
+src="img/p2_5/image029.gif"></p>
+
+<p>2. Если источники сообщений <img width=21 height=19
+src="img/p2_5/image002.gif"> и <img width=16 height=19
+src="img/p2_5/image004.gif"> статистически
+независимы, о энтропия 
+объединения равна сумме энтропий источников сообщений <img width=21 height=19
+src="img/p2_5/image002.gif"> и <img width=16 height=19
+src="img/p2_5/image004.gif"></p>
+
+<p>3. Если два источника сообщений
+<img width=21 height=19
+src="img/p2_5/image002.gif"> и <img width=16 height=19
+src="img/p2_5/image004.gif"> являются полностью
+статистически зависимыми, то <img width=192 height=24
+src="img/p2_5/image031.gif"></p>
+
+<p><b>Пример 2.5.1 </b>Закон
+распределения вероятностей системы, объединяющей зависимые источники информации
+<img width=21 height=19
+src="img/p2_5/image002.gif"> и <img width=16 height=19
+src="img/p2_5/image004.gif"> задан в таблице
+совместных вероятностей:</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:76.3pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid black .75pt;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.75pt solid black;
+ mso-border-insidev:.75pt solid black'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=66 style='width:49.6pt;border:solid black 1.0pt;mso-border-alt:
+  solid black .75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>        </span></span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:
+  EN-US'>Y<o:p></o:p></span></i></p>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>X<o:p></o:p></span></i></p>
+  </td>
+  <td width=51 style='width:38.6pt;border:solid black 1.0pt;border-left:none;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>y</span></i><sub><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'>1</span></sub><span
+  lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+  <td width=58 style='width:43.55pt;border:solid black 1.0pt;border-left:none;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>y</span></i><sub><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'>2</span></sub><span
+  lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+  <td width=63 style='width:46.9pt;border:solid black 1.0pt;border-left:none;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>y</span></i><sub><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'>3</span></sub><span
+  lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=66 style='width:49.6pt;border:solid black 1.0pt;border-top:none;
+  mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>x</span></i><sub><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'>1</span></sub><span
+  lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+  <td width=51 style='width:38.6pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.4<o:p></o:p></span></p>
+  </td>
+  <td width=58 style='width:43.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
+  solid black .75pt;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.1<o:p></o:p></span></p>
+  </td>
+  <td width=63 style='width:46.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=66 style='width:49.6pt;border:solid black 1.0pt;border-top:none;
+  mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  150%'>x</span></i><sub><span style='font-size:14.0pt;line-height:150%'>2</span></sub><span
+  style='font-size:14.0pt;line-height:150%'><o:p></o:p></span></p>
+  </td>
+  <td width=51 style='width:38.6pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0<o:p></o:p></span></p>
+  </td>
+  <td width=58 style='width:43.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
+  solid black .75pt;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.2<o:p></o:p></span></p>
+  </td>
+  <td width=63 style='width:46.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.1<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td width=66 style='width:49.6pt;border:solid black 1.0pt;border-top:none;
+  mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  150%'>x</span></i><sub><span style='font-size:14.0pt;line-height:150%'>3</span></sub><span
+  style='font-size:14.0pt;line-height:150%'><o:p></o:p></span></p>
+  </td>
+  <td width=51 style='width:38.6pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0<o:p></o:p></span></p>
+  </td>
+  <td width=58 style='width:43.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
+  solid black .75pt;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0<o:p></o:p></span></p>
+  </td>
+  <td width=63 style='width:46.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.2<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>Определить
+величины <img width=51 height=24
+src="img/p2_5/image033.gif">, <img width=47 height=24
+src="img/p2_5/image035.gif">, <img width=72 height=24
+src="img/p2_5/image037.gif">, <img width=72 height=24
+src="img/p2_5/image023.gif">, <img width=68 height=24
+src="img/p2_5/image040.gif">.</p>
+
+<p><b>Решение</b></p>
+
+<p>1. Сначала вычислим безусловные вероятности <img width=45 height=25
+src="img/p2_5/image042.gif"> и <img width=49 height=28
+src="img/p2_5/image044.gif">.</p>
+
+<p class=punkt>а) Сложив
+вероятности по строкам таблицы, получим вероятности появления значений <img width=19 height=25
+src="img/p2_5/image046.gif"></p>
+
+<p class=punkt><img width=196 height=25
+src="img/p2_5/image048.gif"></p>
+
+<p class=punkt><img width=197 height=25
+src="img/p2_5/image050.gif"></p>
+<p class=punkt><img width=185 height=25
+src="img/p2_5/image052.gif"></p>
+<p class=punkt>б) Сложив
+вероятности по столбцам таблицы, получим вероятности появления значений <img width=23 height=28
+src="img/p2_5/image012.gif"></p>
+<p class=punkt><img width=184 height=25
+src="img/p2_5/image055.gif"></p>
+<p class=punkt><img width=199 height=25
+src="img/p2_5/image057.gif"></p>
+<p class=punkt><img width=199 height=25
+src="img/p2_5/image059.gif"></p>
+
+<p>2. Вычислим теперь энтропии источников
+информации <img width=21 height=19
+src="img/p2_5/image002.gif"> и <img width=16 height=19
+src="img/p2_5/image004.gif"> по формуле Шеннона,
+используя вычисленные ранее значения безусловных вероятностей.</p>
+
+<p><img width=593 height=55
+src="img/p2_5/image061.gif"></p>
+
+<p><img width=588 height=57
+src="img/p2_5/image063.gif"></p>
+
+<p>3. Определим условные вероятности события
+<img width=23 height=28
+src="img/p2_5/image012.gif"> при условии выполнения
+события <img width=19 height=25
+src="img/p2_5/image046.gif"> по формуле <img width=201 height=28
+src="img/p2_5/image067.gif">. Тогда <img width=163 height=55
+src="img/p2_5/image069.gif">. Величины <img width=72 height=28
+src="img/p2_5/image071.gif"> заданы в таблице, а <img width=45 height=25
+src="img/p2_5/image042.gif"> – вычислены ранее.</p>
+
+<p><img width=244 height=52
+src="img/p2_5/image073.gif"></p>
+
+<p><img width=248 height=52
+src="img/p2_5/image075.gif"></p>
+
+<p><img width=233 height=52
+src="img/p2_5/image077.gif"></p>
+
+<p><img width=235 height=52
+src="img/p2_5/image079.gif"></p>
+
+<p><img width=264 height=52
+src="img/p2_5/image081.gif"></p>
+
+<p><img width=260 height=52
+src="img/p2_5/image083.gif"></p>
+
+<p><img width=233 height=52
+src="img/p2_5/image085.gif"></p>
+
+<p><img width=239 height=52
+src="img/p2_5/image087.gif"></p>
+
+<p><img width=233 height=52
+src="img/p2_5/image089.gif"></p>
+
+<p>Вычисленными
+результатами заполним таблицу условных вероятностей  события <img width=23 height=28
+src="img/p2_5/image012.gif"> при условии выполнения
+события <img width=19 height=25
+src="img/p2_5/image046.gif">.</p>
+
+<p>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:76.3pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid black .75pt;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.75pt solid black;
+ mso-border-insidev:.75pt solid black'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=66 style='width:49.6pt;border:solid black 1.0pt;mso-border-alt:
+  solid black .75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'><span
+  style='mso-spacerun:yes'>        </span></span><i style='mso-bidi-font-style:
+  normal'><span lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:
+  EN-US'>Y<o:p></o:p></span></i></p>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>X<o:p></o:p></span></i></p>
+  </td>
+  <td width=51 style='width:38.6pt;border:solid black 1.0pt;border-left:none;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>y</span></i><sub><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'>1</span></sub><span
+  lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+  <td width=58 style='width:43.55pt;border:solid black 1.0pt;border-left:none;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>y</span></i><sub><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'>2</span></sub><span
+  lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+  <td width=63 style='width:46.9pt;border:solid black 1.0pt;border-left:none;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>y</span></i><sub><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'>3</span></sub><span
+  lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=66 style='width:49.6pt;border:solid black 1.0pt;border-top:none;
+  mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span lang=EN-US style='font-size:14.0pt;
+  line-height:150%;mso-ansi-language:EN-US'>x</span></i><sub><span lang=EN-US
+  style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'>1</span></sub><span
+  lang=EN-US style='font-size:14.0pt;line-height:150%;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+  </td>
+  <td width=51 style='width:38.6pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.8<o:p></o:p></span></p>
+  </td>
+  <td width=58 style='width:43.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
+  solid black .75pt;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.2<o:p></o:p></span></p>
+  </td>
+  <td width=63 style='width:46.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=66 style='width:49.6pt;border:solid black 1.0pt;border-top:none;
+  mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  150%'>x</span></i><sub><span style='font-size:14.0pt;line-height:150%'>2</span></sub><span
+  style='font-size:14.0pt;line-height:150%'><o:p></o:p></span></p>
+  </td>
+  <td width=51 style='width:38.6pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0<o:p></o:p></span></p>
+  </td>
+  <td width=58 style='width:43.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
+  solid black .75pt;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.67<o:p></o:p></span></p>
+  </td>
+  <td width=63 style='width:46.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.33<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td width=66 style='width:49.6pt;border:solid black 1.0pt;border-top:none;
+  mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt;line-height:
+  150%'>x</span></i><sub><span style='font-size:14.0pt;line-height:150%'>3</span></sub><span
+  style='font-size:14.0pt;line-height:150%'><o:p></o:p></span></p>
+  </td>
+  <td width=51 style='width:38.6pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0<o:p></o:p></span></p>
+  </td>
+  <td width=58 style='width:43.55pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
+  solid black .75pt;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0<o:p></o:p></span></p>
+  </td>
+  <td width=63 style='width:46.9pt;border-top:none;border-left:none;border-bottom:
+  solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='text-align:justify;line-height:150%;tab-stops:148.85pt'><span
+  style='font-size:14.0pt;line-height:150%'>0.1<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>4. Определим условную энтропию
+источника информации <img width=16 height=19
+src="img/p2_5/image004.gif">при условии, что сообщения источника <img width=21 height=19
+src="img/p2_5/image002.gif"></p>
+
+<p><img width=332 height=57
+src="img/p2_5/image091.gif"></p>
+
+<p><img width=308 height=80
+src="img/p2_5/image093.gif"></p>
+
+<p>Аналогично можно вычислить условную энтропию
+источника информации <img width=21 height=19
+src="img/p2_5/image002.gif"> при условии, что сообщения источника <img width=16 height=19
+src="img/p2_5/image004.gif"></p>
+
+<p>5. Общая энтропия зависимых
+источников информации <img width=21 height=19
+src="img/p2_5/image002.gif"> и <img width=16 height=19
+src="img/p2_5/image004.gif">определяется по
+формуле </p>
+<p><img width=336 height=57
+src="img/p2_5/image095.gif"></p>
+
+<p><img width=305 height=80
+src="img/p2_5/image097.gif"></p>
+
+<p>Проверим
+результат по формуле </p>
+
+<p><img width=387 height=24
+src="img/p2_5/image099.gif"> бит</p>
+
+<p>Значения совпадают.</p>
+<br>
+<a name=6 class="anchor"></a>
+<h3>2.6 Относительная энтропия и избыточность сообщения</h3>
+
+<p>С практической
+точки зрения оценка количества информации необходима для построения экономичных
+кодов, оценки свойств каналов связи и их пропускной способности, для
+определения избыточности кодов и повышения их помехоустойчивости. При анализе
+каналов связи нужно уметь определять максимальное количество информации,
+которое может быть передано за единицу времени. Максимальное количество
+информации на элемент сообщения может быть получено только в случае равновероятных
+и независимых сообщений. Сообщения, энтропия которых равна максимальному
+значению <img width=104 height=25
+src="img/p2_6/image002.gif"> количество состояний
+элементов сообщения, являются оптимальными сообщениями в смысле наибольшего
+количества передаваемой информации. Реальные сообщения редко полностью
+удовлетворяют этому условию, поэтому информационная нагрузка на каждый элемент
+обычно меньше той, которую они могли бы передавать. Энтропия таких сообщений
+меньше максимальной и сообщение обладает информационной избыточностью. </p>
+
+<p>В теории информации избыточность показывает количество «лишней информации», которая
+определяется структурой множества состояний элементов и обычно заранее известна из статистических данных.</p>
+
+<p><b>Определение.</b> Мерой количественной оценки
+того, насколько данное реальное сообщение отличается от соответствующего ему
+оптимального сообщения, служит <i>коэффициент
+сжатия</i> или <i>относительная энтропия</i>,
+которая равна отношению энтропии реального сообщения к энтропии
+соответствующего ему оптимального сообщения <img width=96 height=40
+src="img/p2_6/image006.gif">.</p>
+
+<p>Коэффициент
+сжатия показывает, какая часть реальных сообщений может быть отброшена при
+переходе к оптимальному кодировании, т.е. какая доля
+сообщения является излишней или избыточной. </p>
+
+<p><b>Определение.</b> Наряду с коэффициентом
+сжатия используется и величина <i>избыточности</i>
+ <img width=68 height=23
+src="img/p2_6/image008.gif">.</p>
+
+<p>Для уменьшения
+избыточности сообщения необходимо увеличить энтропию сообщения, т.е. стремиться
+к тому, что элементы сообщения были максимально информативны.</p>
+
+<p>Нахождение
+оптимальной избыточности кода при данном уровне помех является одной из главных
+задач теории информации и кодирования.</p>
+<p><b>Пример 2.6.1. </b>Для русского языка, состоящего из<span style='mso-spacerun:yes'> 
+</span>32 букв (буквы «е» и «ё», «<span class=SpellE>ь</span>» и «<span
+class=SpellE>ъ</span>» не различаются, добавлен символ пробела « »<span
+class=GramE> )</span>, максимальное значение энтропии при условии равновероятности</span> букв составляет </p>
+
+<p><img width=192 height=25
+src="img/p2_6/image010.gif"></p>
+
+<p>Однако в русском языке появления разных букв
+алфавита происходит с неравными частотами. В таблице приведены частоты
+появления отдельных букв русского языка.</p>
+
+<p>&nbsp;</p>
+
+<table  class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;border:none'>
+ <tr>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>пробел<br>0.175</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>О<br>0.090</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>Е, Ё<br>0.072</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>а<br>0.062</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>и<br>0.062</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>т<br>0.053</p>
+  </td>
+ <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>н<br>0.045</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>с<br>0.045</p>
+  </td>
+ </tr>
+
+
+ <tr>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>p<br>0.040</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>в<br>0.038</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>л<br>0.035</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>к<br>0.028</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>м<br>0.028</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>д<br>0.025</p>
+  </td>
+ <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>п<br>0.023</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>у<br>0.021</p>
+  </td>
+ </tr>
+
+
+
+ <tr>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>я<br>0.018</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>ы<br>0.016</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>з<br>0.016</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>ь, ъ<br>0.014</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>б<br>0.014</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>г<br>0.013</p>
+  </td>
+ <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>ч<br>0.012</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>й<br>0.010</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>х<br>0.009</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>ж<br>0.007</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>ю<br>0.006</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>ш<br>0.006</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>ц<br>0.004</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>щ<br>0.003</p>
+  </td>
+ <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>э<br>0.003</p>
+  </td>
+  <td width="12%" valign=top style='width:12%;border:solid black 1.0pt;
+  padding:0cm 5.0pt 0cm 5.0pt'>
+  <p>ф<br>0.002</p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>Используя эти
+частоты в качестве вероятностей появления букв, можно получить приближенное
+значение энтропии одной буквы русского языка <img width=72 height=20
+src="img/p2_6/image012.gif"> бит, что меньше
+максимального значения энтропии. Если учитывать статистику появления буквенных
+сочетаний и словесных сочетаний, то исследования показали, что энтропия на
+букву русского языка не превышает 2 бит.</p>
+
+<p>Таким образом, коэффициент
+сжатия или относительная энтропия для русского языка составляет <img width=185 height=52
+src="img/p2_6/image014.gif">, а величина избыточности ><img width=175 height=23
+src="img/p2_6/image016.gif">.Коэффициент сжатия показывает, что объем текста на русском языке возможно сжать в 2.5 раза.</p>
+<br>
+<a name=7 class="anchor"></a>
+<h3>2.7 Тестовые вопросы</h3>
+
+<p>1. Сколько битов потребуется, чтобы размесить в памяти
+компьютера фразу </p>
+
+<p>«Тили-тили
+тесто!»?</p>
+
+<p class=punkt>a) 16 </p>
+<p class=punkt>b) 128 </p>
+<p class=punkt>c) 32 </p>
+
+<p>Правильный ответ:  b) </p>
+
+<p>&nbsp; </p>
+
+<p>2. Максимальное значение
+энтропии источника, который порождает 16 различных символов равно </p>
+<p class=punkt>a) 4 </p>
+<p class=punkt>b) 1 </p>
+<p class=punkt>c) нельзя определить </p>
+
+<p>Правильный ответ: a) </p>
+
+<p>&nbsp;</p>
+
+<p>3. Коэффициент сжатия для
+источника с вероятностями<img width=138 height=25
+src="img/p2_7/image002.gif"> <img width=104 height=25
+src="img/p2_7/image004.gif"> <img width=21 height=25
+src="img/p2_7/image006.gif"> <img width=19 height=25
+src="img/p2_7/image008.gif"> равен</p>
+
+<p class=punkt>a) 0.875 </p>
+<p class=punkt>b) 0.125 </p>
+<p class=punkt>c) 1.338 </p>
+
+<p>Правильный ответ: a)</p>
+
+<p>&nbsp;</p>
+
+<p>4. Энтропия Шеннона обладает
+свойством </p>
+<p class=punkt>a) аддитивности </p>
+<p class=punkt>b) ассоциативности </p>
+<p class=punkt>c) социальности </p>
+
+<p>Правильный ответ: a)</p>
+<p>&nbsp;</p>
+<p>5. Количество информации,
+содержащееся в двух статистически зависимых сообщениях, оценивается величиной</p>
+
+<p class=punkt>a) энтропии Шеннона </p>
+<p class=punkt>b) условной энтропии </p>
+<p class=punkt>c) относительной энтропии </p>
+
+<p>Правильный ответ: b)</p>
+
+<br><br>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="gl1.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="lec_index.htm"></a></li>
+		 <li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="gl3.htm"></a></li>
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

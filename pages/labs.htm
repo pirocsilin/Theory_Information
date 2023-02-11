@@ -1,0 +1,851 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="description" content="">
+ <meta name="author" content="do.sibsutis.ru">
+
+ <title>Лабораторные работы. Теория информации</title>
+
+ <link rel="icon" type="image/png" href="../lib/css/favicon.png">
+ <!-- Bootstrap Core CSS -->
+ <link href="../lib/css/bootstrap.css" rel="stylesheet">
+
+ <!-- Custom CSS -->
+ <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+ <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+ <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+ <!--[if lt IE 9]>
+ <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+ <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+ <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+ <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+ <!-- Brand and toggle get grouped for better mobile display -->
+ <div class="navbar-header">
+ <li class="hidden"> 
+<a class="page-scroll" href="#page-top"></a> </li>
+
+ <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ </button>
+
+ <a class="navbar-brand " href="../index.htm">
+ <text class = "hidden-xs">Теория информации</text>
+ <text class = "visible-xs">ТИ</text>
+ </a>
+ </div>
+
+ <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+ <!-- <ul class="nav navbar-nav">
+ <li><a href="#"></a></li>
+ </ul> -->
+
+ <ul class="nav navbar-nav navbar-right">
+ <li class="dropdown">
+ <button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ </button>
+ <a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+  
+ <ul class="dropdown-menu">
+
+   <li><a href="../index.htm">Аннотация курса</a></li>
+  
+ <li role="separator" class="divider"></li>
+   
+<li><a href="lec_index.htm">Теория</a></li>
+   
+
+<li><a href="labs.htm">Лабораторные работы</a></li>
+ 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+  
+ <li role="separator" class="divider"></li>
+ 
+  <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+   </ul>
+ </li>
+ </ul>
+ </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+ <div id="intro" class="section content-section ">
+ <div class="container">
+ <div class="row">
+ <div class="col-lg-12">
+
+  <div class="page-header">
+ 
+ <h3>Лабораторные работы</h3>
+ </div>
+
+
+<h2>Рекомендации к выполнению лабораторных работ </h2><br>
+
+<div class="row">
+<div class="col-md-6">
+   <a class="btn btn-primary btn-block" href="Praktika.doc">Скачать материалы к лабораторным работам в формате DOC Microsoft Word</a>
+</div><br><br>
+</div>
+<h3>Правила выполнения работ</h3>
+
+<p>Перед выполнением заданий практической
+работы рекомендуется изучить теоретический материал по теме практической работы
+и описание методов кодирования на псевдокоде, используя конспекты лекционных
+занятий и литературу из списка.</p>
+
+<p>Задания практических работ
+выполняются только на языке программирования С/С++, среда программирования по
+выбору студента.</p>
+
+<p>Изучаемые методы кодирования
+данных рекомендуется программно реализовывать в виде отдельных функций
+(подпрограмм), данные должны передаваться в подпрограммы в качестве параметров.
+Заполнение массивов данными, вывод их на экран, вычисление вспомогательных
+величин и пр. необходимо также оформлять в виде отдельных подпрограмм.</p>
+
+<p>При выполнении заданий следует
+обеспечить вывод на экран данных на всех шагах алгоритма. Программа должна
+иметь дружественный, интуитивно понятный интерфейс (меню пользователя, вывод
+подсказок, комментарии при вводе/выводе данных и т.д.).</p>
+
+<p>Тестирование разработанной программы необходимо
+проводить для  текстовых файлов с различным частотным распределением символов. После
+тестирования необходимо проанализировать полученные результаты, т.е. проверить
+соответствие полученных экспериментальным путем величин теоретическим оценкам.<br></p>
+
+<p>Для зачета по практической работе студенту необходимо представить</p>
+
+<dir>
+<ul>
+	<li>Исходные тексты программ с подробными комментариями;</li>
+	<li>Исполняемые файлы и тестовые файлы;</li>
+    <li>Отчет по практической работе.</li>
+</ul>
+
+</dir>
+
+<p>Отчет должен включать в себя следующие разделы</p>
+<dir>
+<ul>
+	<li>Формулировку задания</li>
+	<li>Очень краткое описание алгоритмов, используемых в лабораторной работе;</li>
+    <li>Результаты работы программы (в виде файла или в виде скриншота);</li>
+    <li>Анализ и сравнение полученных результатов с теоретическими оценками.</li>
+</ul>
+
+</dir>
+
+
+<p>&nbsp;</p>
+
+<h3>Лабораторная работа  №1<br><u>Вычисление энтропии Шеннона</u></h3>
+
+<p><u>Цель работы:</u> Экспериментальное
+изучение свойств энтропии Шеннона.</p>
+
+<p><u>Среда программирования:</u> любая
+с С-подобным языком программирования.</p>
+
+
+
+<p><u>Результат:</u> программа,
+тестовые примеры, отчет.</p>
+
+
+
+<p><b><i>Задание:</i></b> </p>
+
+<p>1. Для выполнения этой  практической работы необходимо иметь три файла. Объем каждого
+файла  больше 10 Кб, формат <b>txt</b>. </p>
+
+<p>В
+первом файле должна содержаться последовательность символов (количество
+различных символов больше 3) с равномерным распределением, т.е. символы в файле
+ встречаются равновероятно и независимо.</p>
+
+<p>Второй
+файл должен содержать независимую последовательность символов (количество
+различных символов больше 3) с неравновероятным распределением. Вероятности
+символов должны быть заданы заранее, до создания файла.</p>
+
+<p>Эти
+два файла необходимо сгенерировать программно, используя генератор
+псевдослучайных чисел.</p>
+
+<p>В третьем файле содержится
+фрагмент художественного текста на русском или английском языке. Для
+художественных текстов (русский или английский языки) предполагается, что
+строчные и заглавные символы не отличаются, знаки препинания объединены в один
+символ, к алфавиту добавлен пробел, для русских текстов буквы «е» и «ё», «ь» и
+«ъ» совпадают. При использовании текста программы учитываются все символы,
+кроме знаков табуляции.</p>
+
+
+<p>2. Составить программу, определяющую оценки энтропии имеющихся текстовых файлов. </p>
+
+<p>Для вычисления оценки энтропии необходимо программно вычислить частоты символов
+(пар символов) в файле, которые будут оценками реальных вероятностей символов,
+а затем, используя формулу Шеннона, вычислить оценки энтропии файла. </p>
+
+<p>По желанию можно продолжить процесс вычисления оценок с использованием частот
+троек, четверок символов и т.д.</p>
+
+<p>Для того чтобы правильно рассчитать частоты двойных комбинаций символов пары
+символов нужно рассматривать так</p>
+
+<p>Пусть имеется такая последовательность</p>
+
+<p>фывафпро</p>
+
+<p>Под
+парами понимаются пары соседних символов, т.е.</p>
+
+<p>фы
+ыв ва аф фп пр ро</p>
+
+<p>Далее
+для получения оценки энтропии подсчитать частоту встречаемости для каждой пары
+и подставить в формулу Шеннона. Полученное значение оценки энтропии следует
+разделить на 2.</p>
+
+<p>3. После тестирования
+программы необходимо заполнить таблицу для отчета и проанализировать полученные
+результаты. Сравните полученные оценки между собой. Объясните полученные
+результаты</p>
+<br>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:30.0pt'>
+  <td width=148 valign=top style='width:111.0pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p>&nbsp;</p>
+  </td>
+  <td width=152 valign=top style='width:114.0pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p>Оценка энтропии</p>
+  <p>(частоты отдельных символов)</p>
+  </td>
+  <td width=173 valign=top style='width:129.45pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p>Оценка энтропии</p>
+  <p>(частоты пар символов)</p>
+  </td>
+  <td width=136 valign=top style='width:102.2pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p>Теоретическое значение энтропии</p>
+  </td>
+ </tr>
+ <tr style='height:36.0pt'>
+  <td width=148 valign=top style='width:111.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p>Файл <span lang=EN-US>1</p>
+  </td>
+  <td width=152 valign=top style='width:114.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=173 valign=top style='width:129.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=136 valign=top style='width:102.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=148 valign=top style='width:111.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p>Файл 2</p>
+  </td>
+  <td width=152 valign=top style='width:114.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=173 valign=top style='width:129.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=136 valign=top style='width:102.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=148 valign=top style='width:111.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p>фрагмент художественного произведения</p>
+  </td>
+  <td width=152 valign=top style='width:114.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=173 valign=top style='width:129.45pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=136 valign=top style='width:102.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h3>Лабораторная работа №2<br><u>Оптимальное побуквенное кодирование</u></h3>
+
+<p><u>Цель работы:</u> Изучение метода оптимального кодирования Хаффмана.</p>
+
+<p><u>Среда программирования:</u> любая с С-подобным языком программирования.</p>
+
+
+<p><u>Результат:</u> программа, тестовые примеры, отчет.</p>
+<p><b><i>Задание:</i></b> </p>
+
+<p>1. Запрограммировать процедуру двоичного кодирования текстового файла  методом
+Хаффмана. Текстовые файлы использовать те же, что и в практической работе №1.
+Для художественных текстов (русский или английский языки) предполагается, что
+строчные и заглавные символы не отличаются, знаки препинания объединены в один
+символ, к алфавиту добавлен пробел, для русских текстов буквы «е» и «ё», «ь» и
+«ъ» совпадают.</p>
+
+<p>2. Проверить, что полученный код является префиксным.</p>
+
+<p>3. После кодирования текстового файла вычислить оценки энтропии выходной
+последовательности, используя частоты отдельных символов, пар символов и троек
+символов.</p>
+
+<p>4. Заполнить таблицу и проанализировать полученные результаты.</p>
+
+<p>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:30.0pt'>
+  <td width=106 valign=top style='width:79.4pt;border:solid windowtext 1.0pt;
+  border-bottom:solid windowtext 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Метод</p>
+  <p class=MsoNormal>кодирования</p>
+  </td>
+  <td width=133 valign=top style='width:99.9pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Название текста</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Оценка</p>
+  <p class=MsoNormal>избыточности кодирования </p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Оценка энтропии выходной посл-ти (частоты символов)</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Оценка энтропии выходной посл-ти (частоты пар символов)</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Оценка энтропии выходной посл-ти (частоты троек символов)</p>
+  </td>
+ </tr>
+ <tr style='height:36.0pt'>
+  <td width=106 rowspan=3 valign=top style='width:79.4pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.5pt;
+  border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>Метод Хаффмана</p>
+  </td>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>Файл <span lang=EN-US>1</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>Файл 2</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>фрагмент художественного произведения</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+<p>&nbsp;</p>
+	<p>Избыточность кодирования определяется как <img width=96 height=28
+src="img/labs/image002.gif">, где <i>H</i> – энтропия текста, <i>L</i><sub>cp</sub> – средняя длина кодового слова.</p>
+<br>
+
+<h3>Лабораторная работа №3<br><u>Методы почти оптимального кодирования</u></h3>
+
+<p><u>Цель работы:</u> Изучение метода
+почти оптимального кодирования Фано. Изучение метода почти оптимального
+кодирования Шеннона</p>
+
+<p><u>Среда программирования:</u> любая
+с С-подобным языком программирования.</p>
+
+<p><u>Результат:</u> программа,
+тестовые примеры, отчет.</p>
+<p><b><i>Задание:</i></b> </p>
+
+
+<p>1.
+Запрограммировать процедуры двоичного кодирования текстового файла  методом
+Фано и процедуру двоичного кодирования текстового файла  методом Шеннона. Текстовые
+файлы использовать те же, что и в практической работе №1. Для художественных
+текстов (русский или английский языки) предполагается, что строчные и заглавные
+символы не отличаются, знаки препинания объединены в один символ, к алфавиту
+добавлен пробел, для русских текстов буквы «е» и «ё», «ь» и «ъ» совпадают.</p>
+
+<p>2. Проверить, что полученные коды являются префиксными.</p>
+
+<p>3. Для
+каждого метода кодирования после кодирования вычислить оценки энтропии выходной
+последовательности, используя частоты отдельных символов, пар символов и тройки
+символов.</p>
+
+<p>4. После тестирования программы необходимо заполнить таблицу и проанализировать
+полученные результаты.</p>
+
+<p>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:30.0pt'>
+  <td width=106 valign=top style='width:79.4pt;border:solid windowtext 1.0pt;
+  border-bottom:solid windowtext 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Метод</p>
+  <p class=MsoNormal>кодирования</p>
+  </td>
+  <td width=133 valign=top style='width:99.9pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Файлы</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Оценка</p>
+  <p class=MsoNormal>избыточности кодирования </p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Оценка энтропии выходной посл-ти (частоты символов)</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Оценка энтропии выходной посл-ти (частоты пар символов)</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.0pt'>
+  <p class=MsoNormal>Оценка энтропии выходной посл-ти (частоты троек символов)</p>
+  </td>
+ </tr>
+ <tr style='height:36.0pt'>
+  <td width=106 rowspan=3 valign=top style='width:79.4pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.5pt;
+  border-right:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>Метод Хаффмана</p>
+  </td>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>Файл <span lang=EN-US>1</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:36.0pt'>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>Файл 2</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:36.0pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>фрагмент художественного произведения</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=106 rowspan=3 valign=top style='width:79.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>Метод Фано</p>
+  </td>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>Файл <span lang=EN-US>1</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>Файл 2</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>фрагмент художественного произведения</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=106 rowspan=3 valign=top style='width:79.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>Метод Шеннона</p>
+  </td>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>Файл <span lang=EN-US>1</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>Файл 2</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:35.25pt'>
+  <td width=133 valign=top style='width:99.9pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>фрагмент художественного произведения</p>
+  </td>
+  <td width=112 valign=top style='width:83.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=107 valign=top style='width:80.55pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=102 valign=top style='width:76.2pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=109 valign=top style='width:81.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<br>
+<p>Избыточность кодирования определяется как <img width=96 height=28
+src="img/labs/image002.gif">, где <i>H</i> – энтропия текста, <i>L</i><sub>cp</sub> – средняя длина кодового слова.</p>
+
+
+ 
+<br><br>
+
+
+
+<br>	
+	
+
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </div>
+
+ <!--Меню навигации-->
+ <div aria-label="..." class = "nav-menu">
+ <ul class="pager background-transition-slow">
+ <li title="Наверх" style = "margin-right:15px; "><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+ </ul>
+ </div>
+
+ </div>
+ <!-- jQuery -->
+ <script src="../lib/js/jquery.js"></script>
+
+ <!-- Bootstrap Core JavaScript -->
+ <script src="../lib/js/bootstrap.min.js"></script>
+
+ <!-- Scrolling Nav JavaScript -->
+ <script src="../lib/js/jquery.easing.min.js"></script>
+ <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,908 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Тема 7. Конспект лекций</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Теория информации</text> 
+  <text class = "visible-xs">ТИ</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+  <li><a href="lec_index.htm">Теория</a></li>
+   
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+    
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+
+<h3>7. Адаптивные методы кодирования</h3>
+
+<a href="#1" class=punkt>7.1 Основная идея адаптивного кодирования </a><br>
+<a href="#2" class=punkt>7.2 Адаптивный код Хаффмана </a><br>
+<a href="#3" class=punkt>7.3 Код «Стопка книг»</a><br>
+</div>
+<!--начало-->
+<a name=1 class="anchor"></a>
+<h3>7.1 Основная идея адаптивного кодирования </h3>
+<p>При решении реальных задач истинные значения  вероятностей источника, как правило, неизвестны или могут изменяться с течением  времени, поэтому для кодирования сообщений применяют <em>адаптивные</em> модификации методов кодирования, которые дополнительно  включают в себя оценку неизвестной статистики источников.</p>
+<p>Большинство адаптивных методов для учета изменений  статистики исходных данных используют так называемое <em>окно.</em> <em>Окном</em> называют  последовательность символов, предшествующих   кодируемой букве, а <em>длиной окна</em> - количество символов в  окне.</p>
+<p>Обычно окно имеет фиксированную длину и после  кодирования каждой буквы сообщения окно передвигается на один символ вправо.  Таким образом, код для очередной буквы строится с учетом информации, хранящейся  в данный момент в окне (см. рис. 8).</p>
+
+<p><img src="img/294.png" width="460" height="290"></p>
+
+<p>Рисунок 8  Схема перемещения окна при кодировании</p>
+<p>&nbsp;</p>
+<p>При декодировании окно передвигается по закодированному  сообщению аналогичным образом. Информация, содержащаяся в окне, позволяет  однозначно декодировать очередной символ.</p>
+<p>Оценка избыточности при адаптивном кодировании  является достаточно сложной математической задачей, поскольку общая  избыточность складывается из двух составляющих: избыточность кодирования и  избыточность, возникающая при оценке вероятностей появления символов, поэтому  эффективность методов адаптивного кодирования зачастую оценивают  экспериментальным путем.</p>
+<p>Однако для всех методов адаптивного кодирования,  которые приводятся в этой главе, справедлива следующая теорема:</p>
+
+<p><strong>Теорема.</strong> <em>Величина  средней длины кодового слова при адаптивном кодировании удовлетворяет  неравенству</em></p>
+<p>
+  <em><img src="img/295.png" width="116" height="30">,<strong></strong></em></p>
+<p>
+  <em>где <strong>H</strong> –  энтропия источника информации,<strong> C </strong> –  константа, зависящая от размера алфавита  источника и длины окна.</em></p>
+<p>&nbsp;</p>
+<a name=2 class="anchor"></a>
+<h3>7.2 Адаптивный  код Хаффмана</h3>
+<p>В 1978   г. Р.&nbsp;Галлагер предложил метод кодирования  источников с неизвестной или меняющейся статистикой, основанный на коде  Хаффмана, и поэтому названный адаптивным кодом Хаффмана.</p>
+<p>Адаптивный код Хаффмана используется как составная часть  во многих методах сжатия данных. В нем кодирование осуществляется на основе  информации, содержащейся в окне длины<em><strong> W </strong>.</em> Алгоритм  такого  кодирования заключается в выполнении  следующих действий:</p>
+
+  <p>1. В начале  кодирования символы, входящие в окно кодируются кодом Хаффмана, который  строится для оценочного распределения вероятностей. Оценка вероятностей  происходит следующим образом: подсчитываются частоты <img src="img/296.png" width="252" height="24" align="absmiddle"> появления в окне всех символов  исходного алфавита <img src="img/297.png" width="147" height="24" align="absmiddle"> и вероятности символов  исходного алфавита оцениваются на основе значений частот символов в окне</p>
+
+<p><em><img src="img/298.png" width="420" height="47"></em></p>
+
+  <p>2. Перед  кодированием очередной буквы подсчитываются новые частоты  появления в окне всех символов исходного  алфавита и вероятности символов исходного алфавита оцениваются заново на основе  значений частот символов в окне</p>
+  <p>3. По полученному  распределению вероятностей строится код Хаффмана для алфавита <em>A</em></p>
+  <p>4. Очередная буква  кодируется при помощи  построенного кода.</p>
+  <p>5. Окно  передвигается на один символ вправо, вновь подсчитываются частоты встреч в окне  букв алфавита, строится новый код для очередного символа, и так далее, пока не  будет получен код всего сообщения.</p>
+
+<p><strong>Пример 7.2.1.</strong> Рассмотрим пример адаптивного кодирования с помощью метода Хаффмана для  алфавита <img src="img/274.png" width="154" height="24" align="absmiddle"> и длины окна <em>W</em>=6 (см. рис. 9).</p>
+
+<p><img src="img/299.png" width="350" height="301"></p>
+
+<p>Рисунок 9 Кодирование  адаптивным кодом Хаффмана</p>
+<p>&nbsp;</p>
+<p>Рассмотрим  подробно этапы кодирования сообщения.</p>
+<p>Перед  началом кодирования символы в окне встречаются со следующими частотами <img src="img/300.png" width="380" height="25" align="absmiddle">.  Тогда вероятности  символов алфавита <em>A</em> оцениваются так </p>
+<p>
+  <img src="img/301.png" width="382" height="47">   </p>
+<p>
+  Построим  код Хаффмана для этого распределения вероятностей и закодируем символы,  входящие в окно построенным кодом (рис. 10а)</p>
+<p>При кодировании буквы <img src="img/77.png" width="20" height="19" align="absmiddle"> (буква находится вне  окна) частоты пока не изменились, поэтому  кодируем символ <img src="img/77.png" width="20" height="19" align="absmiddle">  кодовым  символом 001.</p>
+
+<p><strong>a)</strong> </p>
+<p><img src="img/302.png" width="666" height="250"></p>
+<p>&nbsp;</p>
+<p><strong>б)</strong> </p>
+<p><img src="img/303.png" width="667" height="249"></p>
+<p>&nbsp;</p>
+<p><strong>в)</strong> </p>
+<p><img src="img/304.png" width="665" height="249"></p>
+
+<p>Рисунок 10 Построение  адаптивного кода Хаффмана</p><p>&nbsp;</p>
+<p>Далее передвигаем окно на один символ вправо и снова  подсчитываем частоты символов в окне <img src="img/305.png" width="399" height="26" align="absmiddle"> и оцениваем  вероятности:</p>
+<p>
+    <img src="img/301.png" width="382" height="47"></p>
+<p>
+  Строим код на основе полученных оценок  вероятностного распределения (см. рис. 10 (б)) и кодируем очередной символ<strong> </strong><img src="img/77.png" width="20" height="19" align="absmiddle"> другим кодовым словом - 00. В этом случае частота символа <em>а</em>3в окне увеличилась, соответственно уменьшилась длина его  кодового слова.</p>
+<p>Снова передвигаем окно на один символ вправо, подсчитываем  частоты символов в окне <img src="img/305.png" width="399" height="26" align="absmiddle"> и оцениваем  вероятности:</p>
+<p>
+     <img src="img/301.png" width="382" height="47"></p>
+<p>
+  Строим код на основе полученных оценок вероятностного  распределения (см. рис. 10 (в)) и кодируем очередной символ<strong> </strong><img src="img/306.png" width="19" height="20" align="absmiddle"> кодовым словом - 101. Таким образом, сообщение <img src="img/307.png" width="172" height="21" align="absmiddle"> получаем кодовую  последовательность 1 01 1 1&nbsp;001&nbsp;000&nbsp;001 00 101. </p>
+<p>&nbsp;</p>
+<p><strong><em>Алгоритм на псевдокоде</em></strong></p>
+<p>
+  <em>Адаптивный код  Хаффмана<strong></strong></em></p>
+<p>
+  Обозначим<br>
+  w – окно<br>
+  mas – массив вероятностей  символов и кодовых слов </p>
+<p><img src="img/308.png" width="641" height="337"></p>
+<p>При декодировании  закодированной последовательности необходимо знать начальное распределение  частот появления символов в окне. Это позволяет раскодировать символы, входящие  в окно и следующий символ. Затем частоты символов пересчитываются и это  позволяет раскодировать следующий символ и т.д.</p>
+<p>&nbsp;</p>
+<a name=3 class="anchor"></a>
+<h3>7.3 Код «Стопка книг»</h3>
+
+<p>Этот метод был предложен Б.&nbsp;Я.&nbsp;Рябко в 1980
+году. Название метод получил по аналогии со стопкой книг, лежащей на столе.
+Обычно сверху стопки находятся книги, которые недавно использовались, а внизу
+стопки – книги, которые использовались давно, и после каждого обращения к
+стопке использованная книга кладется сверху стопки. </p>
+
+<p>До начала кодирования буквы исходного алфавита упорядочены
+произвольным образом и каждой позиции в стопке присвоено свое кодовое слово,
+причем первой позиции стопки соответствует самое короткое кодовое слово, а
+последней позиции  -  самое длинное кодовое слово. Очередной символ
+кодируется кодовым словом, соответствующим номеру его позиции в стопке, и
+переставляется на первую позицию в стопке. </p>
+
+<p><b>Пример 7.3.1</b>. Приведем описание кода на примере алфавита <img width=139 height=25
+src="img/p7_3/image002.gif">. Статистика источника неизвестна. Пусть необходимо
+закодировать сообщение <img width=104 height=25
+src="img/p7_3/image004.gif"></p>
+<ul>
+<li>Символ <img width=21 height=25
+src="img/p7_3/image006.gif"> находится в третьей
+позиции начальной стопки, кодируется кодовым словом 110 и перемещается на
+первую позицию в стопке, при этом символы <img width=19 height=25
+src="img/p7_3/image008.gif"> и <img width=21 height=25
+src="img/p7_3/image010.gif"></li>
+
+<li>Следующий символ <img width=21 height=25
+src="img/p7_3/image006.gif"> уже находится в первой
+позиции стопки, кодируется кодовым словом 0 и стопка не изменяется. </li>
+
+<li>Символ <img width=21 height=25
+src="img/p7_3/image012.gif"> находится в
+последней позиции стопки, кодируется кодовым словом 111 и перемещается на
+первую позицию в стопке, при этом символы <img width=19 height=25
+src="img/p7_3/image008.gif">, <img width=21 height=25
+src="img/p7_3/image010.gif">, <img width=21 height=25
+src="img/p7_3/image006.gif"> смещаются на одну позицию вниз. </li>
+
+<li>Следующий символ <img width=21 height=25
+src="img/p7_3/image012.gif"> уже находится в первой
+позиции стопки, кодируется кодовым словом 0 и стопка не изменяется. </li>
+
+<li>Символ <img width=21 height=25
+src="img/p7_3/image006.gif"> находится во второй
+позиции стопки, кодируется кодовым словом 10 и перемещается на первую позицию в
+стопке, при этом символ <img width=21 height=25
+src="img/p7_3/image012.gif"> смещается на одну
+позицию вниз.</p>
+</ul>
+
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=89 valign=top style='width:67.0pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>№</p>
+  </td>
+  <td width=84 valign=top style='width:62.95pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>Кодовое слово</p>
+  </td>
+  <td width=99 valign=top style='width:73.9pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>Начальная «стопка»</p>
+  </td>
+  <td width=366 colspan=5 valign=top style='width:274.7pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>Преобразования «стопки»</p>
+  <p><o:p>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=89 valign=top style='width:67.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>1</p>
+  </td>
+  <td width=84 valign=top style='width:62.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p>0</p>
+  </td>
+  <td width=99 valign=top style='width:73.9pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>а</span></i><span class=GramE><sub><span
+  style='font-size:14.0pt'>1</span></sub></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=71 valign=top style='width:53.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1030" style='position:absolute;
+   z-index:5;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,9.85pt" to="48.6pt,9.85pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:5;margin-left:28px;margin-top:7px;width:39px;height:12px'><img
+  width=39 height=12 src="img/p7_3/image016.gif" v:shapes="_x0000_s1030"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><sub><span
+  style='font-size:14.0pt'>3</span></sub><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=71 valign=top style='width:53.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1035" style='position:absolute;
+   z-index:10;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="12.4pt,.85pt" to="48.4pt,18.85pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:10;margin-left:16px;margin-top:0px;width:53px;height:31px'><img
+  width=53 height=31 src="img/p7_3/image017.gif" v:shapes="_x0000_s1035"></span><![endif]><!--[if gte vml 1]><v:line
+   id="_x0000_s1034" style='position:absolute;flip:y;z-index:9;
+   mso-position-horizontal-relative:text;mso-position-vertical-relative:text'
+   from="13.1pt,5.25pt" to="49.1pt,59.25pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:9;margin-left:16px;margin-top:2px;width:55px;height:78px'><img
+  width=55 height=78 src="img/p7_3/image018.gif" v:shapes="_x0000_s1034"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><sub><span
+  style='font-size:14.0pt'>3</span></sub><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1038" style='position:absolute;
+   z-index:13;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,9.85pt" to="57.6pt,9.85pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:13;margin-left:28px;margin-top:7px;width:51px;height:12px'><img
+  width=51 height=12 src="img/p7_3/image019.gif" v:shapes="_x0000_s1038"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>4</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1043" style='position:absolute;
+   flip:y;z-index:18;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="11.85pt,5.25pt" to="47.85pt,23.25pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:18;margin-left:15px;margin-top:1px;width:53px;height:31px'><img
+  width=53 height=31 src="img/p7_3/image020.gif" v:shapes="_x0000_s1043"></span><![endif]><!--[if gte vml 1]><v:line
+   id="_x0000_s1042" style='position:absolute;z-index:17;
+   mso-position-horizontal-relative:text;mso-position-vertical-relative:text'
+   from="11.85pt,5.25pt" to="47.85pt,23.25pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:17;margin-left:15px;margin-top:6px;width:53px;height:31px'><img
+  width=53 height=31 src="img/p7_3/image021.gif" v:shapes="_x0000_s1042"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>А<span
+  class=GramE><sub>4</sub></span><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>а</span></i><sub><span style='font-size:14.0pt'>3</span></sub><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=89 valign=top style='width:67.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-size:14.0pt'>2<o:p></o:p></span></p>
+  </td>
+  <td width=84 valign=top style='width:62.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-size:14.0pt'>10<o:p></o:p></span></p>
+  </td>
+  <td width=99 valign=top style='width:73.9pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1028" style='position:absolute;
+   z-index:3;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,6.65pt" to="66.6pt,24.65pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:3;margin-left:28px;margin-top:8px;width:65px;height:31px'><img
+  width=65 height=31 src="img/p7_3/image022.gif" v:shapes="_x0000_s1028"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>2</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=71 valign=top style='width:53.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1031" style='position:absolute;
+   z-index:6;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,7.65pt" to="48.6pt,7.65pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:6;margin-left:28px;margin-top:4px;width:39px;height:12px'><img
+  width=39 height=12 src="img/p7_3/image016.gif" v:shapes="_x0000_s1031"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>1</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=71 valign=top style='width:53.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1036" style='position:absolute;
+   z-index:11;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,4.55pt" to="48.6pt,22.55pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:11;margin-left:28px;margin-top:5px;width:41px;height:31px'><img
+  width=41 height=31 src="img/p7_3/image023.gif" v:shapes="_x0000_s1036"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>1</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1039" style='position:absolute;
+   z-index:14;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,7.65pt" to="57.6pt,7.65pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:14;margin-left:28px;margin-top:4px;width:51px;height:12px'><img
+  width=51 height=12 src="img/p7_3/image019.gif" v:shapes="_x0000_s1039"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><sub><span
+  style='font-size:14.0pt'>3</span></sub><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>А<sub>3</sub><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>а</span></i><span class=GramE><sub><span
+  style='font-size:14.0pt'>4</span></sub></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=89 valign=top style='width:67.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-size:14.0pt'>3<o:p></o:p></span></p>
+  </td>
+  <td width=84 valign=top style='width:62.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-size:14.0pt'>110<o:p></o:p></span></p>
+  </td>
+  <td width=99 valign=top style='width:73.9pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>а</span></i><sub><span style='font-size:14.0pt'>3</span></sub><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=71 valign=top style='width:53.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1032" style='position:absolute;
+   z-index:7;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,4.15pt" to="48.6pt,4.15pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:7;margin-left:28px;margin-top:0px;width:39px;height:12px'><img
+  width=39 height=12 src="img/p7_3/image024.gif" v:shapes="_x0000_s1032"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>2</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=71 valign=top style='width:53.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1037" style='position:absolute;
+   z-index:12;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,8.25pt" to="48.6pt,26.25pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:12;margin-left:28px;margin-top:10px;width:41px;height:31px'><img
+  width=41 height=31 src="img/p7_3/image025.gif" v:shapes="_x0000_s1037"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>2</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1040" style='position:absolute;
+   z-index:15;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,4.8pt" to="57.6pt,4.8pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:15;margin-left:28px;margin-top:0px;width:51px;height:12px'><img
+  width=51 height=12 src="img/p7_3/image026.gif" v:shapes="_x0000_s1040"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>1</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1044" style='position:absolute;
+   z-index:19;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="18.35pt,8.25pt" to="54.35pt,8.25pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:19;margin-left:23px;margin-top:5px;width:51px;height:12px'><img
+  width=51 height=12 src="img/p7_3/image027.gif" v:shapes="_x0000_s1044"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>А<span
+  class=GramE><sub>1</sub></span><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>а</span></i><span class=GramE><sub><span
+  style='font-size:14.0pt'>1</span></sub></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+  <td width=89 valign=top style='width:67.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1027" style='position:absolute;
+   flip:y;z-index:2;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="153pt,-36pt" to="180pt,-9pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  relative;z-index:2'><span style='position:absolute;left:203px;top:-53px;
+  width:42px;height:42px'><img width=42 height=42
+  src="img/p7_3/image028.gif" v:shapes="_x0000_s1027"></span></span><![endif]><span
+  style='font-size:14.0pt'>4<o:p></o:p></span></p>
+  </td>
+  <td width=84 valign=top style='width:62.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span style='font-size:14.0pt'>111<o:p></o:p></span></p>
+  </td>
+  <td width=99 valign=top style='width:73.9pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1029" style='position:absolute;
+   z-index:4;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,2.95pt" to="57.6pt,2.95pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  relative;z-index:4'><span style='position:absolute;left:28px;top:-2px;
+  width:51px;height:12px'><img width=51 height=12
+  src="img/p7_3/image027.gif" v:shapes="_x0000_s1029"></span></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>4</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=71 valign=top style='width:53.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1033" style='position:absolute;
+   z-index:8;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,2.95pt" to="48.6pt,2.95pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  relative;z-index:8'><span style='position:absolute;left:28px;top:-2px;
+  width:39px;height:12px'><img width=39 height=12
+  src="img/p7_3/image029.gif" v:shapes="_x0000_s1033"></span></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>4</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=71 valign=top style='width:53.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+  style='font-size:14.0pt'>а</span></i><span class=GramE><sub><span
+  style='font-size:14.0pt'>4</span></sub></span><i style='mso-bidi-font-style:
+  normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1041" style='position:absolute;
+   z-index:16;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="21.6pt,2.85pt" to="57.6pt,2.85pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  relative;z-index:16'><span style='position:absolute;left:28px;top:-2px;
+  width:51px;height:12px'><img width=51 height=12
+  src="img/p7_3/image030.gif" v:shapes="_x0000_s1041"></span></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>2</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1045" style='position:absolute;
+   z-index:20;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="18.35pt,6.05pt" to="54.35pt,6.05pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  absolute;z-index:20;margin-left:23px;margin-top:2px;width:51px;height:12px'><img
+  width=51 height=12 src="img/p7_3/image031.gif" v:shapes="_x0000_s1045"></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>А<span
+  class=GramE><sub>2</sub></span><o:p></o:p></span></i></p>
+  </td>
+  <td width=75 valign=top style='width:56.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><!--[if gte vml 1]><v:line id="_x0000_s1026" style='position:absolute;
+   z-index:1;mso-position-horizontal-relative:text;
+   mso-position-vertical-relative:text' from="-269.35pt,-43.05pt" to="-228.2pt,-18pt">
+   <v:stroke endarrow="block"/>
+   <w:anchorlock/>
+  </v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+  relative;z-index:1'><span style='position:absolute;left:-360px;top:-58px;
+  width:60px;height:40px'><img width=60 height=40
+  src="img/p7_3/image032.gif" v:shapes="_x0000_s1026"></span></span><![endif]><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'>а</span></i><span
+  class=GramE><sub><span style='font-size:14.0pt'>2</span></sub></span><i
+  style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><o:p></o:p></span></i></p>
+  </td>
+ </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>Рисунок 11 Кодирование
+методом «стопка книг»</p>
+
+<p>&nbsp;</p>
+
+<p>Таким образом, закодированное
+сообщение имеет следующий вид:</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><!--[if gte vml 1]><v:group id="_x0000_s1046"
+ style='position:absolute;left:0;text-align:left;margin-left:0;margin-top:1.2pt;
+ width:3in;height:63.05pt;z-index:21;mso-position-horizontal:left'
+ coordorigin="4401,4194" coordsize="4320,1261">
+ <v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s1047" type="#_x0000_t202" style='position:absolute;
+  left:4401;top:4194;width:4320;height:541' strokecolor="white">
+  <v:textbox style='mso-next-textbox:#_x0000_s1047'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal><span style='font-size:14.0pt'>110<span
+     style='mso-spacerun:yes'>    </span>0 &nbsp;<span
+     style='mso-spacerun:yes'>  </span>111<span style='mso-spacerun:yes'>   
+     </span>0<span style='mso-spacerun:yes'>      </span>10</span><span
+     lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'> …<o:p></o:p></span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:group id="_x0000_s1048" style='position:absolute;left:4581;top:4554;
+  width:2700;height:180' coordorigin="1701,4387" coordsize="2340,180">
+  <v:polyline id="_x0000_s1049" style='position:absolute;mso-wrap-style:square;
+   mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+   mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+   mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+   mso-position-vertical:absolute;mso-position-vertical-relative:text;
+   v-text-anchor:top' points="1701,4387,1701,4567,2061,4567,2061,4387"
+   coordsize="360,180" filled="f">
+   <v:path arrowok="t"/>
+  </v:polyline><v:shape id="_x0000_s1050" style='position:absolute;left:2241;
+   top:4387;width:180;height:180;mso-wrap-style:square;
+   mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+   mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+   mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+   mso-position-vertical:absolute;mso-position-vertical-relative:text;
+   v-text-anchor:top' coordsize="180,180" path="m,l,180r180,l180,e" filled="f">
+   <v:path arrowok="t"/>
+  </v:shape><v:polyline id="_x0000_s1051" style='position:absolute;
+   mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+   mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+   mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+   mso-position-vertical:absolute;mso-position-vertical-relative:text;
+   v-text-anchor:top' points="2601,4387,2601,4567,2961,4567,2961,4387"
+   coordsize="360,180" filled="f">
+   <v:path arrowok="t"/>
+  </v:polyline><v:polyline id="_x0000_s1052" style='position:absolute;
+   mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+   mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+   mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+   mso-position-vertical:absolute;mso-position-vertical-relative:text;
+   v-text-anchor:top' points="3141,4387,3141,4567,3501,4567,3501,4387"
+   coordsize="360,180" filled="f">
+   <v:path arrowok="t"/>
+  </v:polyline><v:polyline id="_x0000_s1053" style='position:absolute;
+   mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+   mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+   mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+   mso-position-vertical:absolute;mso-position-vertical-relative:text;
+   v-text-anchor:top' points="3681,4387,3681,4567,4041,4567,4041,4387"
+   coordsize="360,180" filled="f">
+   <v:path arrowok="t"/>
+  </v:polyline></v:group><v:shape id="_x0000_s1054" type="#_x0000_t202"
+  style='position:absolute;left:4581;top:4914;width:3066;height:541'
+  strokecolor="white">
+  <v:textbox style='mso-next-textbox:#_x0000_s1054'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal><i style='mso-bidi-font-style:normal'><span
+     style='font-size:14.0pt'>а</span></i><sub><span style='font-size:14.0pt'>3</span></sub><i
+     style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><span
+     style='mso-spacerun:yes'>    </span><span class=SpellE>а<sub><span
+     style='font-style:normal'>3</span></sub></span></span></i><sub><span
+     style='font-size:14.0pt'> </span></sub><i style='mso-bidi-font-style:normal'><span
+     style='font-size:14.0pt'><span style='mso-spacerun:yes'>    </span>а</span></i><span
+     class=GramE><sub><span style='font-size:14.0pt'>4</span></sub></span><i
+     style='mso-bidi-font-style:normal'><span style='font-size:14.0pt'><span
+     style='mso-spacerun:yes'>     </span><span class=SpellE>а<sub><span
+     style='font-style:normal'>4</span></sub></span><sub><span
+     style='mso-spacerun:yes'>       </span></sub><span
+     style='mso-spacerun:yes'> </span><span class=SpellE>a</span></span></i><sub><span
+     lang=EN-US style='font-size:14.0pt;mso-ansi-language:EN-US'>3<i
+     style='mso-bidi-font-style:normal'><o:p></o:p></i></span></sub></p>
+     <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><w:wrap type="square"/>
+</v:group><![endif]--><![if !vml]><img width=294 height=90
+src="img/p7_3/image033.gif" align=left v:shapes="_x0000_s1046 _x0000_s1047 _x0000_s1048 _x0000_s1049 _x0000_s1050 _x0000_s1051 _x0000_s1052 _x0000_s1053 _x0000_s1054"><![endif]><span
+style='font-size:14.0pt'><o:p></o:p></span></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>Рассмотренный метод сжимает сообщение за счет того,
+что часто встречающиеся символы будут находиться в верхних позициях «стопки
+книг» и кодироваться более короткими кодовыми словами. Эффективность метода
+особенно заметна при кодировании серий одинаковых символов. В этом случае все
+символы серии, начиная со второго, будут кодироваться самым коротким кодовым
+словом, соответствующим первой позиции «стопки книг».</p>
+
+<p>При декодировании используется такая же «стопка книг»,
+находящаяся первоначально в том же состоянии. Над «стопкой» проводятся такие же
+преобразования, что и при кодировании. Это гарантирует однозначное
+восстановление исходной последовательности.</p>
+
+<p>&nbsp;</p>
+
+<p><b><i>Алгоритм на псевдокоде</i></b></p>
+
+<p><i>Кодирование кодом «Стопка книг»</i></p>
+
+<p>Обозначим</p>
+
+<p>length –  длина кодируемой строки </p>
+
+<p>code – массив кодовых слов для позиции «стопки»</p>
+
+<p>s_in – строка для кодирования</p>
+
+<p>s_out  – результат кодирования</p>
+
+<p>S – строка, содержащая исходный алфавит</p>
+
+<p>insert(T,S) –
+процедура, которая перемещает символ S[T] на первую позицию строки S, при
+этом сдвигая символы S[1], S[2], …,>S[T-1] на
+одну позицию вправо</p>
+
+<p>&nbsp;</p>
+
+<p class=MsoNormal style='text-indent:36.0pt;tab-stops:-81.0pt'><span
+class=GramE><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:EN-US'>length:</span></span><span lang=EN-US
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>=&lt;</span><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>длина</span><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'> <span
+class=SpellE><span lang=EN-US>s_in</span></span><span lang=EN-US>&gt;<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt;tab-stops:-81.0pt'><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>DO (<span class=SpellE>i</span>=1,…<span class=GramE>,length</span>)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt;tab-stops:-81.0pt'><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'><span style='mso-tab-count:1'>         </span><span class=GramE>T<span
+lang=RU style='mso-ansi-language:RU'>:</span></span></span><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>=&lt;номер символа </span><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>s</span><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>_</span><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>in</span><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>[</span><span
+class=SpellE><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;
+mso-ansi-language:EN-US'>i</span></span><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt'>] в строке </span><span lang=EN-US style='font-size:
+14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>S</span><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt;tab-stops:-81.0pt'><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><span style='mso-tab-count:
+1'>         </span></span><span class=SpellE><span lang=EN-US style='font-size:
+14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>s_out</span></span><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>:=<span class=SpellE>s_out+<span class=GramE>code</span></span><span
+class=GramE>[</span>T]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt;tab-stops:-81.0pt'><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'><span style='mso-tab-count:1'>         </span><span class=GramE>insert<span
+lang=RU style='mso-ansi-language:RU'>(</span></span>T</span><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>,</span><span lang=EN-US
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'>S</span><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>)</span><span lang=EN-US
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt;tab-stops:-81.0pt'><span
+lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:
+EN-US'>OD</span><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt;tab-stops:-81.0pt'><span
+style='font-size:14.0pt;mso-bidi-font-size:12.0pt'><o:p>&nbsp;</o:p></span></p>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="gl6.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="lec_index.htm"></a></li>
+		 <li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="gl8.htm"></a></li>
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

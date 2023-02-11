@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Тема 5. Конспект лекций</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Теория информации</text> 
+  <text class = "visible-xs">ТИ</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+  <li><a href="lec_index.htm">Теория</a></li>
+   
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+    
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+<h3>5. Почти оптимальное кодирование</h3>
+<a href="#1" class=punkt>5.1 Код Шеннона </a><br>
+<a href="#2" class=punkt>5.2 Код Фано</a><br>
+</div>
+<!--начало-->
+<a name=1 class="anchor"></a>
+<h3>5.1 Код Шеннона</h3>
+<p>Рассмотрим несколько  классических двоичных побуквенных кодов, у которых средняя длина кодового слова  близка к оптимальной. Пусть имеется дискретный вероятностный источник,  порождающий символы алфавита <img src="img/136.png" width="150" height="26" align="absmiddle"> и вероятностями <img src="img/142.png" width="203" height="31" align="absmiddle">.</p>
+<p>Код Шеннонапозволяет построить почти оптимальный  код с длинами кодовых слов <img src="img/226.png" width="128" height="23" align="absmiddle">. Тогда по теореме  Шеннона  </p>
+
+<p><img src="img/227.png" width="188" height="24"></p>
+<p>
+  Код Шеннона, удовлетворяющий  этому соотношению, строится следующим образом:</p>
+<p>1. Упорядочим символы исходного алфавита <img src="img/136.png" width="150" height="26" align="absmiddle"> по убыванию их вероятностей <img src="img/171.png" width="140" height="19" align="absmiddle">.</p>
+<p>2. Вычислим величины <img src="img/228.png" width="21" height="25" align="absmiddle">, <img src="img/229.png" width="77" height="20" align="absmiddle"> которые называются <em>кумулятивные вероятности</em></p>
+<p><img src="img/230.png" width="300" height="203"><br>
+</p>
+<p>3. Представим <img src="img/231.png" width="36" height="23" align="absmiddle"> в двоичной системе  счисления и возьмем в качестве кодового слова первые <img src="img/232.png" width="84" height="27" align="absmiddle"> двоичных знаков после  запятой, <img src="img/233.png" width="77" height="18">.</p>
+<p>Для вероятностей,  представленных в виде десятичных дробей, удобно определить длину кодового слова <em>Li</em> из соотношения</p>
+
+<p><img src="img/234.png" width="242" height="48"></p>
+
+<p><strong>Пример 5.1.1. </strong>Пусть источник имеет алфавит <img src="img/235.png" width="210" height="27" align="absmiddle"> с вероятностями</p>
+<p><img src="img/236.png" width="566" height="22"></p>
+<p>
+  Построенный код приведен в таблице 6.</p>
+<p>Таблица 6</a> Код Шеннона </p>
+<p><img src="img/237.png" width="529" height="233"></p>
+<p>&nbsp;</p>
+<p>Построенный код является  префиксным. Вычислим среднюю длину кодового слова и сравним ее с энтропией.  Значение энтропии вычислено при построении кода Хаффмана (<em>H</em> = 2.37), сравним его со  значением средней длины кодового слова кода Шеннона</p>
+<p>
+  <img src="img/238.png" width="607" height="28"></p>
+<p>
+  что полностью соответствует утверждению  теоремы Шеннона.</p>
+
+<p>&nbsp;</p>
+<p><strong><em>Алгоритм на псевдокоде</em></strong></p>
+<p>
+  <em> Построение кода Шеннона</em></p>
+<p>
+  Обозначим<br>
+  n – количество символов исходного алфавита<br>
+  P – массив вероятностей, упорядоченных по убыванию<br>
+  Q– массив для величин Qi <br>
+  L – массив длин кодовых слов<br>
+  C – матрица элементарных кодов </p>
+<p><img src="img/239.png" width="640" height="307"></p>
+<br>
+<a name=2 class="anchor"></a>
+<h3>5.2 Код Фано</h3>
+</ul>
+<p>Метод Фано построения  префиксного почти оптимального кода, для которого <img src="img/240.png" width="181" height="25" align="absmiddle">, заключается в следующем. </p>
+<ul>
+  <li>Упорядоченный по убыванию вероятностей список букв алфавита источника  делится на две части так, чтобы суммы вероятностей букв, входящих в эти части,  как можно меньше отличались друг от друга. </li>
+  <li>Буквам первой части приписывается 0, а буквам из второй части – 1.  Далее также поступают с каждой из полученных частей. </li>
+  <li>Процесс продолжается до тех пор, пока весь список не разобьется на  части, содержащие по одной букве.</li>
+</ul>
+<p><strong>Пример 5.2.1. </strong>Пусть источник имеет алфавит <img src="img/235.png" width="210" height="27" align="absmiddle"> с вероятностями</p>
+<p><img src="img/241.png" width="555" height="26"></p>
+<p>
+  Построенный код приведен в  таблице 7 и на рисунке 6.</p>
+<p>Таблица 7</a> Код Фано</p>
+<p><img src="img/242.png" width="235" height="220"> </p>
+<p><img src="img/243.png" width="294" height="302"></p>
+
+<p>Рисунок 6 Кодовое дерево для кода Фано </p>
+<p><br>
+  Полученный код является  префиксным и почти оптимальным со средней длиной кодового слова</p>
+<p><br>
+  <img src="img/244.png" width="561" height="27"></p>
+<p>&nbsp;</p>
+<p><strong><em>Алгоритм на псевдокоде</em></strong></p>
+<p>
+  <em>Построение кода Фано</em></p>
+<p> <br>
+  Обозначим</p>
+<p><img src="img/246.png" width="452" height="158"></p>
+<p><br>
+  <img src="img/245.png" width="492" height="285"></p>
+<p>Функция Med  находит медиану части массива P, т.е. такой индекс <img src="img/248.png" width="86" height="19" align="absmiddle">, что величина <img src="img/249.png" width="133" height="57" align="absmiddle"> минимальна.<br></p>
+<p><img src="img/247.png" width="188" height="258"></p>
+<br><br>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="gl4.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="lec_index.htm"></a></li>
+		 <li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="gl6.htm"></a></li>
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

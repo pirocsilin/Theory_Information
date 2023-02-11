@@ -1,0 +1,681 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Тема 8. Конспект лекций</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Теория информации</text> 
+  <text class = "visible-xs">ТИ</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+   <li><a href="lec_index.htm">Теория</a></li>
+   
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+    
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+
+<h3>8. Словарные коды класса LZ</h3>
+<a href="#1" class=punkt>8.1 Общая схема кодирования </a><br>
+<a href="#2" class=punkt>8.2 Кодирование с использованием скользящего окна </a><br>
+<a href="#3" class=punkt>8.3 Кодирование с использованием адаптивного словаря</a><br>
+</div>
+<!--начало-->
+<a name=1 class="anchor"></a>
+<h3>8.1 Общая схема кодирования</h3>
+
+<p>Словарные коды класса LZ широко используются в практических задачах. На их  основе реализовано множество программ-архиваторов. Эти методы также  используются при сжатии изображений в модемах и других цифровых устройствах  передачи и хранения информации.</p>
+<p> Словарные методы сжатия данных позволяют эффективно  кодировать источники с неизвестной или меняющейся статистикой. Важными  свойствами этих методов являются высокая скорость кодирования и декодирования,  а также относительно небольшая сложность реализации. Кроме того, LZ-методы обладают способностью быстро адаптироваться к  изменению статистической структуры сообщений.</p>
+<p> Словарные коды интенсивно исследуются и  конструируются, начиная с 1977 года, когда появилось описание первого  алгоритма, предложенного А.&nbsp;Лемпелом и Я.&nbsp;Зивом. В настоящее время существует  множество методов, объединенных в класс LZ-кодов, которые представляют собой различные  модификации метода Лемпела-Зива.</p>
+<p>Общая схема кодирования, используемая  в LZ-методах,  заключается в следующем.При  кодировании сообщение разбивается на слова переменной длины. При обработке  очередного слова ведется поиск ему подобного в ранее закодированной части  сообщения.Если слово найдено, то  передается соответствующий ему код. Если слово не найдено, то передается  специальный символ, обозначающий его отсутствие, и новое обозначение этого  слова. Каждое новое слово, не встречавшееся ранее, запоминается, и ему  присваивается индивидуальный код.</p>
+<p>При декодировании по принятому коду определяется  закодированное слово. В случае получения специального символа, сигнализирующего  о передаче нового слова, принятое слово запоминается, и ему присваивается такой  же, как и при кодировании, код. Таким образом, декодирование является  однозначным, т.к. каждому слову соответствует свой собственный код.</p>
+<p>По способу организации хранения и поиска слов  словарные методы можно разделить на две большие группы:</p>
+<ul>
+  <li>алгоритмы,  осуществляющие поиск слов в какой-либо части ранее закодированного текста,  называемой окном; </li>
+  <li>алгоритмы,  использующие адаптивный словарь, который включает ранее встретившиеся слова. Если  словарь заполняется до окончания процесса кодирования, то в некоторых методах  он обновляется (на место ранее встретившихся слов записываются новые), а в  некоторых кодирование продолжается без обновления словаря.</li>
+</ul>
+<p>Алгоритмы класса LZ отличаются размерами окна, способами кодирования слов,  алгоритмами обновления словаря и т.п. Все указанные факторы влияют и на  характеристики этих методов: скорость кодирования, объем требуемой памяти и  степень сжатия данных, различные для разных алгоритмов. Однако в целом методы  из класса LZ представляют значительный  практический интерес и позволяют достаточно эффективно сжимать данные с  неизвестной статистикой.</p>
+<br>
+<a name=2 class="anchor"></a>
+<h3>8.2 Кодирование с использованием скользящего окна</h3>
+<p>Рассмотрим основные этапы кодирования сообщения <img src="img/309.png" width="91" height="21" align="absmiddle">, которое порождается некоторым источником информации с  алфавитом <em>A</em> алгоритмом LZ с использованием скользящего окна.</p>
+<p>Пусть используется окно длины <em>W</em>, т.е. при кодировании символа <img src="img/310.png" width="15" height="20" align="absmiddle"> исходной  последовательности учитываются <em>W</em> предыдущих символов:</p>
+
+<p><img src="img/311.png" width="248" height="49"></p>
+<p>
+  Сначала осуществляется поиск в окне символа <img src="img/312.png" width="15" height="22" align="absmiddle">. Если символ не найден, то в качестве кода передается  0  как  признак того, что этого символа нет в окне и двоичное представление <img src="img/312.png" width="15" height="22" align="absmiddle">.</p>
+<p>Если символ <img src="img/312.png" width="15" height="22" align="absmiddle"> найден, то  осуществляется поиск в окне слова <img src="img/313.png" width="38" height="18" align="absmiddle">, начинающегося с этого символа. Если слово <img src="img/313.png" width="38" height="18" align="absmiddle"> есть в окне, то производится  поиск слова <img src="img/314.png" width="55" height="22" align="absmiddle">, затем  <img src="img/315.png" width="76" height="22" align="absmiddle">  и так далее, пока не будет найдено слово,  состоящее из наибольшего количества входных символов в порядке их поступления.  В этом случае в качестве кода передается 1 и пара чисел <em>(<strong>i, j</strong>)</em>, указывающая положение найденного слова в окне (<strong><em>i</em></strong> – номер позиции окна, с которой начинается  это слово, <strong><em>j</em></strong> – длина слова, позиции в окне нумеруются  справа налево). Затем окно сдвигается на <strong><em>j</em></strong> символов вправо по  тексту и кодирование продолжается.  Для  кодирования чисел <em>(<strong>i, j</strong>)</em> могут быть  использованы коды целых чисел.</p>
+
+<p><strong>Пример  8.2.1.</strong>  Пусть алфавит источника <img src="img/316.png" width="101" height="23" align="absmiddle">,  длина окна <em>W=6</em>. Необходимо закодировать исходное сообщение <em>bababaabacabac. </em>(см. рис. 13)</p>
+<p>После кодирования первых шести букв окно будет иметь  вид <em>bababa</em>.</p>
+<ul>
+  <li>Далее проверяем  наличие в окне буквы <em>а.</em> Она найдена,  добавляем к ней <em>b</em>, ищем в окне <em>ab</em><em>.</em> Эта пара есть в окне, добавляем букву <em>а</em>, ищем <em>aba</em><em>. </em>Это слово есть в окне, добавляем букву <em>с</em>, ищем <em>abac</em>. Этого слова нет в окне, тогда кодируем <em>aba</em> кодовой комбинацией (1,3,3), где 1–  признак того, что слово есть в «окне»,3–  номер позиции в окне, с которой начинается это слово, 3– длина этого слова. </li>
+  <li>Далее окно  сдвигаем на 3 символа вправо и  ищем в  окне букву <em>с</em>. Ее нет в окне, поэтому  кодируем  комбинацией (0, «<em>с</em>»), где 0– признак того, что буквы нет  в окне, «<em>с</em>»–  двоичное представление буквы. Окно сдвигаем на 1 символ вправо. </li>
+  <li>Ищем в окне букву <em>а</em>, она найдена, добавляем к ней <em>b</em>, ищем в  окне <em>ab</em><em>.</em> Эта пара есть в окне, добавляем букву <em>а</em>, ищем <em>aba</em><em>. </em>Это слово есть в окне, добавляем букву <em>с</em>, ищем <em>abac</em>. Это слово есть в окне, тогда кодируем <em>aba</em><em>с</em> кодовой  комбинацией (1,4,4), где 1 – признак того, что слово есть в окне,4 – номер позиции в окне, с которой  начинается это слово, 4 – длина этого слова.  </li>
+</ul>
+<p><img src="img/317.png" width="478" height="268">&nbsp;</p>
+
+<p>Рисунок 13 Кодирование последовательности <em>bababaabacabac</em></p>
+<br>
+<a name=3 class="anchor"></a>
+<h3>8.3 Кодирование с использованием адаптивного словаря</h3>
+<p>В этих словарных методах для хранения слов  используется адаптивный словарь, заполняющийся в процессе кодирования. Перед  началом кодирования в словарь включаются все символы алфавита источника. При  кодировании сообщения <img src="img/315.png" width="76" height="22" align="absmiddle"> сначала читаются два  символа <img src="img/313.png" width="38" height="18" align="absmiddle">, поскольку это слово отсутствует в словаре, то передается  код символа <img src="img/312.png" width="15" height="22" align="absmiddle"> (обычно это номер  строки, содержащей найденный символ или слово). В свободную строку таблицы  записывается слово <img src="img/313.png" width="38" height="18" align="absmiddle">, далее читается символ <img src="img/318.png" width="21" height="22" align="absmiddle"> и осуществляется поиск  в словаре слова <img src="img/319.png" width="39" height="19" align="absmiddle">. Если это слово есть в словаре, то проверяется наличие слова <img src="img/320.png" width="58" height="22" align="absmiddle"> и т. д. Таким образом,  слово из наибольшего количества входных символов, найденное в словаре,  кодируется как номер строки его содержащей.</p>
+
+<p><strong>Пример 8.3.1.</strong> Пусть алфавит источника <img src="img/316.png" width="101" height="23" align="absmiddle">, размер словаря <em>V</em>. Необходимо закодировать исходное сообщение <em>abababaabacabac</em>.</p>
+
+  <p>1. Запишем символы алфавита <em>A</em> в словарь, каждому символу  припишем кодовое слово длины <img src="img/321.png" width="199" height="28" align="absmiddle">.</p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="132" valign="top"><p align=center>Номер строки</p></td>
+      <td width="156" valign="top"><p align=center>Слово</p></td>
+      <td width="120" valign="top"><p align=center>Код</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>0</p></td>
+      <td width="156" valign="top"><p align=center><em>a</em></p></td>
+      <td width="120" valign="top"><p align=center>000</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>1</p></td>
+      <td width="156" valign="top"><p align=center><em>b</em></p></td>
+      <td width="120" valign="top"><p align=center>001</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>2</p></td>
+      <td width="156" valign="top"><p align=center><em>c</em></p></td>
+      <td width="120" valign="top"><p align=center>010</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>3</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>4</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>5</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>6</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>7</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+</table>
+
+    <p>&nbsp;</p>
+    <p>2. Читаем первые две  буквы <em>ab</em>, ищем слово <em>ab</em> в словаре. Этого слова нет, поэтому поместим слово <em>ab</em> в  свободную 3-ю строку словаря, а букву <em>а</em> закодируем кодом 000.</p>
+ 
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="132" valign="top"><p align=center>Номер строки</p></td>
+      <td width="156" valign="top"><p align=center>Слово</p></td>
+      <td width="120" valign="top"><p align=center>Код</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>0</p></td>
+      <td width="156" valign="top"><p align=center><em>a</em></p></td>
+      <td width="120" valign="top"><p align=center>000</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>1</p></td>
+      <td width="156" valign="top"><p align=center><em>b</em></p></td>
+      <td width="120" valign="top"><p align=center>001</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>2</p></td>
+      <td width="156" valign="top"><p align=center><em>c</em></p></td>
+      <td width="120" valign="top"><p align=center>010</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>3</p></td>
+      <td width="156" valign="top"><p align=center><em>ab</em></p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>4</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>5</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>6</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>7</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+  </table>
+
+    <p>&nbsp;</p>
+    <p>3. Далее читаем букву <em>a</em> и  ищем в словаре слово <em>ba</em><em>.</em> Этого слова нет, поэтому запишем в 4-ю строку словаря  слово <em>ba</em><em>,</em> букву <em>b</em> закодируем кодом 001.</p>
+
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="132" valign="top"><p align=center>Номер строки</p></td>
+      <td width="156" valign="top"><p align=center>Слово</p></td>
+      <td width="120" valign="top"><p align=center>Код</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>0</p></td>
+      <td width="156" valign="top"><p align=center><em>a</em></p></td>
+      <td width="120" valign="top"><p align=center>000</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>1</p></td>
+      <td width="156" valign="top"><p align=center><em>b</em></p></td>
+      <td width="120" valign="top"><p align=center>001</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>2</p></td>
+      <td width="156" valign="top"><p align=center><em>c</em></p></td>
+      <td width="120" valign="top"><p align=center>010</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>3</p></td>
+      <td width="156" valign="top"><p align=center><em>ab</em></p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>4</p></td>
+      <td width="156" valign="top"><p align=center><em>ba</em></p></td>
+      <td width="120" valign="top"><p align=center>100</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>5</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>6</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>7</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+  </table>
+
+    <p align=center>&nbsp;</p>
+    <p>4. Читаем букву <em>b</em>, ищем в словаре слово <em>ab</em><em>.</em> Это слово есть в словаре в строке 3. Читаем следующую  букву <em>а</em>, получим слово <em>aba</em>, его нет  в словаре. Запишем  слово <em>aba</em> в 5-ю  строку словаря, и закодируем <em>ab</em> кодом 011.</p>
+
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="132" valign="top"><p align=center>Номер строки</p></td>
+      <td width="156" valign="top"><p align=center>Слово</p></td>
+      <td width="120" valign="top"><p align=center>Код</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>0</p></td>
+      <td width="156" valign="top"><p align=center><em>a</em></p></td>
+      <td width="120" valign="top"><p align=center>000</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>1</p></td>
+      <td width="156" valign="top"><p align=center><em>b</em></p></td>
+      <td width="120" valign="top"><p align=center>001</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>2</p></td>
+      <td width="156" valign="top"><p align=center><em>c</em></p></td>
+      <td width="120" valign="top"><p align=center>010</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>3</p></td>
+      <td width="156" valign="top"><p align=center><em>ab</em></p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>4</p></td>
+      <td width="156" valign="top"><p align=center><em>ba</em></p></td>
+      <td width="120" valign="top"><p align=center>100</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>5</p></td>
+      <td width="156" valign="top"><p align=center><em>aba</em></p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>6</p></td>
+      <td width="156" valign="top"><p align=center><em>–</em></p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>7</p></td>
+      <td width="156" valign="top"><p align=center>–</p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+
+    <p>5. Читаем букву <em>b</em><em>,</em> ищем в словаре слово <em>ab</em><em>.</em> Это слово есть в словаре в строке 3. Читаем следующую  букву <em>а</em>, получим слово <em>aba</em><em>.</em> Это слово  есть в словаре в строке 5. Читаем букву <em>а</em>,  получим слово <em>aba</em><em>а,</em> его нет в словаре. Запишем  слово <em>aba</em><em>а</em> в 6-ю строку словаря, и закодируем <em>ab</em><em>а</em> кодом 101.</p>
+
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="132" valign="top"><p align=center>Номер строки</p></td>
+      <td width="156" valign="top"><p align=center>Слово</p></td>
+      <td width="120" valign="top"><p align=center>Код</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>0</p></td>
+      <td width="156" valign="top"><p align=center><em>a</em></p></td>
+      <td width="120" valign="top"><p align=center>000</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>1</p></td>
+      <td width="156" valign="top"><p align=center><em>b</em></p></td>
+      <td width="120" valign="top"><p align=center>001</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>2</p></td>
+      <td width="156" valign="top"><p align=center><em>c</em></p></td>
+      <td width="120" valign="top"><p align=center>010</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>3</p></td>
+      <td width="156" valign="top"><p align=center><em>ab</em></p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>4</p></td>
+      <td width="156" valign="top"><p align=center><em>ba</em></p></td>
+      <td width="120" valign="top"><p align=center>100</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>5</p></td>
+      <td width="156" valign="top"><p align=center><em>aba</em></p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>6</p></td>
+      <td width="156" valign="top"><p align=center><em>aba</em><em>а</em></p></td>
+      <td width="120" valign="top"><p align=center>101</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>7</p></td>
+      <td width="156" valign="top"><p align=center>–</p></td>
+      <td width="120" valign="top"><p align=center>&nbsp;</p></td>
+    </tr>
+  </table>
+  <p align=center>&nbsp;</p>
+
+    <p>6. Читаем букву <em>b</em><em>,</em> ищем в словаре слово <em>ab</em><em>.</em> Это слово есть в словаре в строке 3. Читаем следующую  букву <em>а</em>, получим слово <em>aba</em><em>.</em> Это слово  есть в словаре в строке 5. Читаем букву <em>с</em>,  получим слово <em>aba</em><em>с,</em> его нет в словаре. Запишем  слово <em>aba</em><em>с</em> в 7-ю строку словаря, и закодируем <em>ab</em><em>а</em> кодом 101.  Если словарь заполняется до окончания кодирования, то можно записывать новые  слова в словарь, начиная со строки с наибольшим номером, удаляя ранее  записанные там слова.</p>
+
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="132" valign="top"><p align=center>Номер строки</p></td>
+      <td width="156" valign="top"><p align=center>Слово</p></td>
+      <td width="120" valign="top"><p align=center>Код</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>0</p></td>
+      <td width="156" valign="top"><p align=center><em>a</em></p></td>
+      <td width="120" valign="top"><p align=center>000</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>1</p></td>
+      <td width="156" valign="top"><p align=center><em>b</em></p></td>
+      <td width="120" valign="top"><p align=center>001</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>2</p></td>
+      <td width="156" valign="top"><p align=center><em>c</em></p></td>
+      <td width="120" valign="top"><p align=center>010</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>3</p></td>
+      <td width="156" valign="top"><p align=center><em>ab</em></p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>4</p></td>
+      <td width="156" valign="top"><p align=center><em>ba</em></p></td>
+      <td width="120" valign="top"><p align=center>100</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>5</p></td>
+      <td width="156" valign="top"><p align=center><em>aba</em></p></td>
+      <td width="120" valign="top"><p align=center>101</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>6</p></td>
+      <td width="156" valign="top"><p align=center><em>aba</em><em>а</em></p></td>
+      <td width="120" valign="top"><p align=center>110</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>7</p></td>
+      <td width="156" valign="top"><p align=center><em>aba</em><em>с</em></p></td>
+      <td width="120" valign="top"><p align=center>111</p></td>
+    </tr>
+  </table>
+  <p align=center>&nbsp;</p>
+ 
+    <p>7. Читаем букву <em>а,</em> ищем в словаре слово <em>са.</em> Этого слова нет  в словаре, поэтому запишем  слово <em>са</em> в 7-ю строку словаря,  удалив слово <em>ab</em><em>ас, </em> и закодируем букву <em>с</em> кодом 010.</p>
+
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="132" valign="top"><p align=center>Номер строки</p></td>
+      <td width="156" valign="top"><p align=center>Слово</p></td>
+      <td width="120" valign="top"><p align=center>Код</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>0</p></td>
+      <td width="156" valign="top"><p align=center><em>a</em></p></td>
+      <td width="120" valign="top"><p align=center>000</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>1</p></td>
+      <td width="156" valign="top"><p align=center><em>b</em></p></td>
+      <td width="120" valign="top"><p align=center>001</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>2</p></td>
+      <td width="156" valign="top"><p align=center><em>c</em></p></td>
+      <td width="120" valign="top"><p align=center>010</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>3</p></td>
+      <td width="156" valign="top"><p align=center><em>ab</em></p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>4</p></td>
+      <td width="156" valign="top"><p align=center><em>ba</em></p></td>
+      <td width="120" valign="top"><p align=center>100</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>5</p></td>
+      <td width="156" valign="top"><p align=center><em>aba</em></p></td>
+      <td width="120" valign="top"><p align=center>101</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>6</p></td>
+      <td width="156" valign="top"><p align=center><em>aba</em><em>а</em></p></td>
+      <td width="120" valign="top"><p align=center>110</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>7</p></td>
+      <td width="156" valign="top"><p align=center><em><s>aba</s></em><s><em>с</em></s><em>      са</em></p></td>
+      <td width="120" valign="top"><p align=center>111</p></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+
+    <p>8. Читаем букву <em>b</em><em>,</em> ищем в словаре слово <em>ab</em><em>.</em> Это слово есть в словаре в строке 3. Читаем следующую  букву <em>а</em>, получим слово <em>aba</em><em>.</em> Это слово  есть в словаре в строке 5. Читаем букву <em>с</em>,  получим слово <em>aba</em><em>с,</em> его нет в словаре. Запишем  слово <em>aba</em><em>с</em> в 6-ю строку словаря, и закодируем <em>ab</em><em>а</em> кодом 101.</p>
+
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="132" valign="top"><p align=center>Номер строки</p></td>
+      <td width="156" valign="top"><p align=center>Слово</p></td>
+      <td width="120" valign="top"><p align=center>Код</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>0</p></td>
+      <td width="156" valign="top"><p align=center>a </p></td>
+      <td width="120" valign="top"><p align=center>000</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>1</p></td>
+      <td width="156" valign="top"><p align=center>b</p></td>
+      <td width="120" valign="top"><p align=center>001</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>2</p></td>
+      <td width="156" valign="top"><p align=center>c</p></td>
+      <td width="120" valign="top"><p align=center>010</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>3</p></td>
+      <td width="156" valign="top"><p align=center>ab</p></td>
+      <td width="120" valign="top"><p align=center>011</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>4</p></td>
+      <td width="156" valign="top"><p align=center>ba </p></td>
+      <td width="120" valign="top"><p align=center>100</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>5</p></td>
+      <td width="156" valign="top"><p align=center>aba </p></td>
+      <td width="120" valign="top"><p align=center>101</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>6</p></td>
+      <td width="156" valign="top"><p align=center><s>abaа</s>   abaс</p></td>
+      <td width="120" valign="top"><p align=center>110</p></td>
+    </tr>
+    <tr>
+      <td width="132" valign="top"><p align=center>7</p></td>
+      <td width="156" valign="top"><p align=center>са</p></td>
+      <td width="120" valign="top"><p align=center>111</p></td>
+    </tr>
+  </table>
+  <p align=center>&nbsp;</p>
+  <p>9. Закодируем букву <em>с</em> кодом 010. Конец входной последовательности.</p>
+  <p>Таким образом, входное сообщение будет закодировано  так</p>
+  <p><br>
+    <img src="img/322.png" width="524" height="44"> <br>
+  </p>
+  <p>&nbsp;</p>
+ 
+  <p><strong><em>Алгоритм  на псевдокоде</em></strong></p>
+  <p><br>
+    <em> Кодирование  с адаптивным словарем</em> </p>
+  <p>
+    Обозначим<br>
+    CurCode – текущий код <br>
+    PrevCode – предыдущий код<br>
+    M – массив, содержащий текущую последовательность<br>
+    L – длина текущей последовательности<br>
+    C – словарь (массив строк)<br>
+    S – текущая длина кода<br>
+    DicPos – количество последовательностей в словаре</p>
+  <p>&lt;Инициализация  словаря символами исходного алфавита&gt;</p>
+  <p><br>
+    S:=9; L:=0; DicPos:=257                      (256+конец сжатия)<br>
+    DO (not EOF)<br>
+           CurCode:=Read( )                       (читаем следующий байт из файла)<br>
+           M[L]:=CurCode;   L:=L+1<br>
+           IF (текущая последовательность найдена в словаре)<br>
+                  CurCode:=номер найденной последовательности<br>
+           ELSE <br>
+                  C[DicPos]:=M;  DicPos:=DicPos+1<br>
+           IF (log(DicPos)+1)&gt;S  S:=S+1 FI (использовать  соотношение п.6.1)<br>
+                  Write(PrevCode,S)           (пишем в выходной файл S бит PrevCode)<br>
+                  M[0]:=CurCode;   L:=1<br>
+           FI<br>
+           PrevCode:=CurCode<br>
+    OD<br>
+    Write(PrevCode,S)                                (сохраняем оставшийся код)<br>
+    Write(256,S)                                          (конец сжатия)</p>
+  <p>&nbsp;</p>
+  <p><strong>Пример 8.3.2</strong> Рассмотрим теперь на примере ранее закодированного  сообщения <em>abababaabacabac</em> (алфавит  источника <img src="img/316.png" width="101" height="23" align="absmiddle">, размер словаря <em>V=8</em>) процесс декодирования. Закодированная последовательность  имела такой вид</p>
+  <p><br>
+    000001011101101010101010</p>
+  <p>&nbsp;</p>
+  <ol>
+    <li>Запишем символы  алфавита <em>А</em> в словарь, каждому символу  припишем кодовое слово длины <img src="img/321.png" width="199" height="28" align="absmiddle">. (Процесс заполнения словаря будет таким же, как и при  кодировании.)</li>
+    <li>Читаем первые три  бита кодовой последовательности (код 000), по коду найдем в словаре букву <em>а</em>.</li>
+    <li>Читаем следующий  код 001, по коду найдем в словаре букву <em>b</em>. Получим новое слово <em>ab</em>, которого нет в словаре, поместим слово <em>ab</em> в  свободную 3-ю строку словаря. На выход декодера передаем букву <em>а</em>, букву <em>b</em> запоминаем.</li>
+    <li>Читаем код 011, по  коду находим в словаре слово <em>ab</em>. Добавляем первую букву <em>а</em> к предыдущему декодированному слову <em>b</em>, получим слово <em>ba</em>, его нет в словаре. Поместим слово <em>ba</em> в  свободную 4-ю строку словаря. На выход декодера передаем букву <em>b</em>, слово <em>ab</em> запоминаем.</li>
+    <li> Читаем код 101, такого кода нет в словаре. Тогда  добавляем к слову <em>ab </em>первую  букву этой же последовательности – <em>а</em>,  получим слово <em>aba</em>, его нет в словаре. Поместим слово <em>aba</em>в  свободную 5-ю строку словаря. На выход декодера передаем слово <em>ab</em>, слово <em>aba</em> запоминаем.</li>
+    <li>Читаем код 101, по  коду находим в словаре слово <em>aba</em>, добавляем первую букву <em>a</em> к предыдущему декодированному слову <em>aba</em>, получим <em>abaa</em><em>. </em>Добавим слово <em>abaa</em> в словарь в свободную 6-ю строку. На выход декодера  передаем слово <em>aba</em>, и слово <em>aba</em> запоминаем. </li>
+    <li>Читаем код 010, по  коду находим в словаре букву <em>с</em>,  добавляем букву <em>с</em> к предыдущему  декодированному слову <em>aba</em>, получим <em>abac</em><em>.</em> Добавим слово <em>aba</em><em>с</em> в словарь в свободную 7-ю строку. На выход декодера  передаем слово <em>aba</em>, букву <em>с</em> запоминаем. </li>
+    <li>Читаем код 101, по  коду находим в словаре слово <em>aba</em>, добавляем первую букву <em>а</em> к предыдущей декодированной букве <em>с</em>, получим слово <em>са.</em> Так как словарь  заполнился до окончания декодирования, то будем записывать новые слова в  словарь, начиная со строки с наибольшим номером, удаляя ранее записанные там  слова. Добавим слово <em>са </em>в 7-ю строку  словаря вместо слова<em>abac</em>. На  выход декодера передаем букву <em>с</em>,  слово <em>aba</em> запоминаем. </li>
+    <li>Читаем код 010, по  коду находим в словаре букву <em>с</em>,  добавляем букву <em>с</em> к предыдущему  декодированному слову <em>aba</em>, получим <em>abac</em><em>.</em> Добавим слово <em>abac</em>в 6-ю строку словаря вместо слова<em>aba</em><em>а</em>. На выход декодера передаем  слово <em>aba</em><em>,</em> букву <em>с</em> запоминаем.</li>
+    <li>На выход декодера  передаем букву <em>с</em>.</li>
+  </ol>
+  <p>&nbsp;</p>
+  <p>В результате декодирования получим исходное сообщение</p>
+
+  <p><img src="img/323.png" width="513" height="43"></p>
+
+  <p> <br>
+    <strong><em>Алгоритм  на псевдокоде</em></strong></p>
+  <p><br>
+    <em>Декодирование с адаптивным словарем</em></p>
+  <p>
+    Обозначим<br>
+    CurCode – текущий код <br>
+    PrevCode – предыдущий код<br>
+    M – массив, содержащий текущую последовательность<br>
+    L – длина текущей последовательности<br>
+    C – словарь (массив строк)<br>
+    S – текущая длина кода<br>
+    DicPos – количество последовательностей в словаре</p>
+  <p>&lt;Инициализация  словаря символами исходного алфавита&gt;<br>
+    S:=9;  L:=0;    DicPos:=257<br>
+    DO<br>
+           CurCode:=Read(S)                             (читаем из файла S бит)<br>
+           IF  (CurCode=256)   break  FI<br>
+           IF (C[CurCode]&lt;&gt;0)    (в словаре найдена послед-ть с номером CurCode)<br>
+                  M[L]:=C[CurCode][0]          (в  конец текущей последовательности<br>
+                                              приписываем первый символ найденной последовательности)<br>
+                  L:=L+1<br>
+           ELSE M[L]:=M[0];  L:=L+1<br>
+           FI <br>
+           IF (текущая последовательность М не найдена в словаре С)<br>
+                  Write(C[PrevCode])<br>
+                  C[DicPos]:=M                 (добавляем текущую послед-ть в словарь)<br>
+                  DicPos:=DicPos+1<br>
+                  IF  (log DicPos+1)&gt;S  S:=S+1 FI   (использовать соотношение п.6.1)<br>
+                  M:=C[CurCode]                (в текущую послед-ть заносим слово <br>
+                  L=длина слова                                с номером CurCode)<br>
+           FI<br>
+           PrevCode:=CurCode<br>
+    OD<br>
+    Write(C[PrevCode]</p>
+  <p>&nbsp;</p>
+</ul>
+<br><br>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="gl7.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="lec_index.htm"></a></li>
+		 <li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="gl9.htm"></a></li>
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

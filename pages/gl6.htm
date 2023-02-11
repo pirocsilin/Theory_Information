@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Тема 6. Конспект лекций</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Теория информации</text> 
+  <text class = "visible-xs">ТИ</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+   <li><a href="lec_index.htm">Теория</a></li>
+   
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+    
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+
+<h3>6. Арифметический код
+
+</h3>
+</div>
+<!--начало-->
+
+<p>Идея арифметического кодирования была впервые  предложена П.&nbsp;Элиасом. В арифметическом коде кодируемое сообщение разбивается  на блоки постоянной длины, которые затем кодируются отдельно. При этом при  увеличении длины блока средняя длина кодового слова стремится к энтропии,  однако возрастает сложность реализации алгоритма и уменьшается  скорость кодирования и декодирования. Таким  образом, арифметическое кодирование позволяет получить произвольно малую  избыточность при кодировании достаточно больших блоков входного сообщения,  процесс кодирования и декодирования достаточно трудоемкий.</p>
+<p>Рассмотрим общую идею арифметического  кодирования. Пусть дан источник<em>,</em> порождающий буквы из алфавита<img src="img/54.png" width="155" height="27" align="absmiddle"> и вероятностями <img src="img/142.png" width="203" height="31" align="absmiddle"><em>.</em> Для кодирования  сообщения источника арифметическим кодом необходимо выполнить следующие  действия.</p>
+
+  <p>1) Вычислим кумулятивные вероятности <em><img src="img/255.png" width="24" height="26" align="absmiddle"></em><em>, </em><em><img src="img/256.png" width="91" height="20" align="absmiddle"></em></p>
+
+<p><em><img src="img/230.png" width="300" height="203"></em><br>
+
+</p>
+
+  <p>2) Разобьем интервал <img src="img/257.png" width="72" height="26" align="absmiddle"> (т.е. интервал [0,1)) на  отдельные интервалы так, чтобы каждой букве алфавита источника соответствовал  свой интервал, равный ее вероятности (см. рис. 7). Таким  образом, символу <img src="img/251.png" width="18" height="18" align="absmiddle"> соответствует интервал <img src="img/258.png" width="80" height="23" align="absmiddle">, <img src="img/259.png" width="73" height="20" align="absmiddle">.</p>
+  <p>3) В процессе кодирования будем выбирать интервал,  соответствующий текущей букве исходного сообщения, и снова разбивать его  пропорционально вероятностям  букв алфавита источника. Постепенно происходит  сужение интервала до тех пор, пока не будет закодирован последний символ  кодируемого сообщения. Двоичное представление любой точки, расположенной внутри  интервала, и будет кодом исходного сообщения.</p>
+
+<p>На рисунке 7 показан  процесс   кодирования последовательности <img src="img/260.png" width="79" height="21" align="absmiddle"></p>
+
+<p>&nbsp;<img src="img/261.png" width="645" height="396"></p>
+
+<p>Рисунок 7 Схема  арифметического кодирования</p>
+<p><br>
+  Для  удобства вычислений введем следующие обозначения: <br>
+  <em><img src="img/262.png" width="18" height="26" align="absmiddle"></em> - нижняя граница отрезка, соответствующего <em>i</em> <em>-</em>той букве  исходного сообщения;<br>
+  <em><img src="img/263.png" width="16" height="25" align="absmiddle"> </em>- верхняя граница этого отрезка;<br>
+  <em><img src="img/264.png" width="14" height="21" align="absmiddle"> </em>- длина отрезка <img src="img/265.png" width="51" height="23" align="absmiddle"><em>,</em>  т.е. <img src="img/266.png" width="84" height="23" align="absmiddle">.<br>
+  Инициализируем  начальные значения этих величин</p>
+<p>
+  <em><img src="img/267.png" width="133" height="103"></em><br>
+</p>
+<p>
+  и  далее будем вычислять границы интервала, соответствующего кодируемой букве  по формулам:</p>
+<p>
+  <img src="img/268.png" width="172" height="66"></p>
+<p>
+  где <em>m</em> -  порядковый  номер кодируемой буквы в алфавите источника <em>m=</em>1,...,<em>n</em>,  а <em>i</em>– номер кодируемого символа в сообщении.</p>
+<p>Таким образом, окончательная длина интервала равна  произведению вероятностей всех встретившихся символов, а начало интервала  зависит от порядка расположения символов в кодируемой последовательности.</p>
+<p>Для однозначного декодирования исходной  последовательности достаточно взять <img src="img/269.png" width="84" height="29" align="absmiddle"> разрядов двоичной  записи любой точки из интервала <img src="img/270.png" width="58" height="23" align="absmiddle"> , где <img src="img/271.png" width="18" height="23" align="absmiddle"> - длина интервала после кодирования <img src="img/272.png" width="13" height="20" align="absmiddle"> символов сообщения источника.</p>
+
+<p><strong>Пример 6.1.</strong> Рассмотрим кодирование арифметическим кодом  бесконечной последовательности <img src="img/273.png" width="114" height="20" align="absmiddle">, которая порождается источником с алфавитом <img src="img/274.png" width="154" height="24" align="absmiddle"> с вероятностями <img src="img/275.png" width="64" height="22" align="absmiddle">, <img src="img/276.png" width="70" height="24" align="absmiddle">, <img src="img/277.png" width="70" height="20" align="absmiddle">, <img src="img/278.png" width="72" height="21" align="absmiddle">.</p>
+<p>Вычислим  кумулятивные вероятности </p>
+
+<p><img src="img/279.png" width="234" height="173"><br>
+  
+</p>
+<p>
+  Получим  границы интервала, соответствующего первому символу кодируемого сообщения <img src="img/281.png" width="19" height="21" align="absmiddle">:</p>
+
+<p><img src="img/280.png" width="291" height="103"><br>
+</p>
+<p>Для  второго символа кодируемого сообщения <img src="img/282.png" width="21" height="21" align="absmiddle"> границы  интервала будут следующие:</p>
+
+<p>
+  <img src="img/283.png" width="332" height="102">и т.д.</p>
+
+<p>В  результате всех вычислений получаем следующую последовательность интервалов для  сообщения <img src="img/284.png" width="95" height="22" align="absmiddle"></p>
+<p>
+  <img src="img/285.png" width="383" height="165"></p>
+<p>
+  Кодом последовательности <img src="img/273.png" width="114" height="20" align="absmiddle"> будет  двоичная запись любой точки из интервала [0.56112, 0.5616), например, 0.56112.  Для однозначного декодирования возьмем <img src="img/286.png" width="265" height="27" align="absmiddle"> разрядов, получим код  100011111010.</p>
+<p>Таким образом, при арифметическом кодировании сообщение  представляется вещественными числами в интервале [0,1). По мере кодирования сообщения  отображающий его интервал уменьшается, а количество битов для представления  интервала возрастает. Очередные символы сообщения сокращают величину интервала  в зависимости от значений их вероятностей. Более вероятные символы делают это в  меньшей степени, чем менее вероятные, и следовательно, добавляют меньше битов к  результату.</p>
+
+<p><strong><em>Алгоритм  на псевдокоде</em></strong></p>
+<p>
+  <em> Арифметическое  кодирование</em> </p>
+<p><img src="img/287.png" width="550" height="367"><br>
+</p>
+<p>В начале декодирования известен конечный интервал (например,  [0.56112; 0.5616)) или любое число из этого интервала (например, 0.56112). Сразу  можно определить, что первым закодированным символом был <img src="img/281.png" width="19" height="21" align="absmiddle">, т. к. число 0.56112 лежит в интервале [0.5; 0.7), который  соответствует символу <img src="img/281.png" width="19" height="21" align="absmiddle">. Затем в качестве интервала берется [0.5; 0.7) и в нем  определяется диапазон, соответствующий числу 0.56112. Это интервал [0.52, 0.6),  выделенный символу <em><img src="img/282.png" width="21" height="21" align="absmiddle"></em> и  т.д. Для декодирования необходимо знать количество закодированных символов и  исходные вероятности символов.</p>
+
+<p><strong><em>Алгоритм  на псевдокоде</em></strong></p>
+<p>
+  <em> Арифметическое  декодирование</em> </p>
+<p>
+  Обозначим</p>
+<p><img src="img/288.png" width="484" height="365"><br>
+</p>
+<p>Заметим, что при кодировании и декодировании  для экономии памяти достаточно  использовать не массивы, а переменные l, r и  h.</p>
+<p>При реализации арифметического кодирования возникают  две проблемы:</p>
+<ul>
+  <li>необходима  арифметика с плавающей точкой теоретически неограниченной точности;</li>
+  <li>результат  кодирования становится известен только после окончания входного потока.</li>
+</ul>
+<p>Для решения этих проблем реальные алгоритмы работают  с целыми числами и оперируют с дробями,  числитель и знаменатель которых являются целыми числами (например, знаменатель  равен <img src="img/291.png" width="126" height="18">, <img src="img/289.png" width="40" height="26" align="absmiddle">, <img src="img/290.png" width="85" height="23" align="bottom">). При этом с потерей точности можно бороться,  отслеживая сближение <em><img src="img/292.png" width="14" height="24" align="absmiddle"></em>и <img src="img/293.png" width="17" height="22" align="absmiddle">и умножая числитель и знаменатель представляющей их дроби на одно и то же  число, например на 2. С переполнением сверху можно бороться, записывая старшие  биты <em><img src="img/292.png" width="14" height="24" align="absmiddle"></em> и <img src="img/293.png" width="17" height="22" align="absmiddle"><em> </em>в файл только тогда, когда они перестают меняться  (т.е. уже не участвуют в дальнейшем уточнении интервала), когда<em> <img src="img/292.png" width="14" height="24" align="absmiddle"></em>и <em><img src="img/293.png" width="17" height="22" align="absmiddle"></em>одновременно находятся в верхней или нижней половине  интервала.</p>
+<br><br>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="gl5.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="lec_index.htm"></a></li>
+		 <li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="gl7.htm"></a></li>
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

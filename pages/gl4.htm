@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Тема 4. Конспект лекций</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Теория информации</text> 
+  <text class = "visible-xs">ТИ</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+  <li><a href="lec_index.htm">Теория</a></li>
+   
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+    
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+<h3>4. Оптимальное побуквенное кодирование</h3>
+
+<a href="#1" class=punkt>4.1 Определения и примеры</a><br> 
+<a href="#2" class=punkt>4.2 Теоремы Шеннона </a><br>
+<a href="#3" class=punkt>4.3 Свойства оптимального побуквенного кода </a><br>
+<a href="#4" class=punkt>4.4 Оптимальный код Хаффмана</a><br>
+</div>
+<!--начало-->
+<a name=1 class="anchor"></a>
+<h3>4.1 Определения и примеры</h3>
+<p>При кодировании сообщений считается, что символы  сообщения порождаются некоторым <em>источником  информации</em>. Источник считается   заданным  полностью,  если дано вероятностное описание процесса  появления сообщений на выходе источника. Это означает, что в любой момент  времени определена вероятность порождения источником  любой   последовательности символов <img src="img/135.png" width="159" height="24" align="absmiddle">. Такой источник называется  <em>дискретным вероятностным  источником.</em></p>
+<p><strong>Определение.</strong> Если вероятностный источник с алфавитом <img src="img/136.png" width="150" height="26">порождает символы алфавита независимо друг  от друга, т.е. знание  предшествующих  символов не влияет на вероятность последующих, то такой источник называется <em>бернуллиевским</em>. Тогда для любого сообщения <img src="img/137.png" width="73" height="18" align="absmiddle">, <img src="img/138.png" width="42" height="18">, порождаемого источником, выполняется равенство:</p>
+<p>
+<img src="img/139.png" width="335" height="26"></p>
+<p>
+где<strong> <em>P(x)</em></strong> – вероятность  появления символа <strong><em>x</em></strong>,&nbsp; <img src="img/140.png" width="100" height="21" align="absmiddle">  – вероятность  появления последовательности <img src="img/141.png" width="68" height="18" align="absmiddle"><em>.</em></p>
+<p>Для другого класса источников (марковских) существует  статистическая взаимосвязь между порождаемыми символами. В дальнейшем будем  рассматривать кодирование стационарных (с неизменным распределением  вероятностей) бернуллиевских дискретных источников без памяти.</p>
+<p>Пусть имеется дискретный  вероятностный источник без памяти, порождающий символы алфавита <img src="img/136.png" width="150" height="26"> с вероятностями <img src="img/142.png" width="203" height="31" align="absmiddle">. Основной характеристикой источникаявляется <em>энтропия, </em>которая  представляет собой среднее значение количества информации в сообщении источника  и определяется выражением (для двоичного случая)</p>
+<p>
+  <img src="img/143.png" width="246" height="41">.</p>
+<p>
+  Энтропия  характеризует меру неопределенности выбора для данного источника.</p>
+
+<p><strong>Пример 4.1.1</strong>.  Если <img src="img/144.png" width="226" height="24" align="absmiddle">, т.е. источник может породить только символ <img src="img/145.png" width="22" height="19">, то неопределенности нет, энтропия <img src="img/146.png" width="116" height="23" align="absmiddle">. <br>
+Источник с  равновероятными символами <img src="img/147.png" width="284" height="24" align="absmiddle">, будет иметь максимальную энтропию <img src="img/148.png" width="109" height="24" align="absmiddle">.</p>
+
+<p><strong>Определение.</strong> Величина <img src="img/149.png" width="209" height="51" align="absmiddle"> называется <em>энтропией на символ </em> последовательности длины <strong><em>L</em></strong>, где <img src="img/150.png" width="23" height="27"> <strong>-</strong> множество всех сообщений источника длины <strong><em>L</em></strong> <strong> </strong>в алфавите<strong> <em>A</em>.</strong></p>
+
+<p><strong>Определение.</strong> Обозначим через <img src="img/151.png" width="32" height="20" align="absmiddle">предел  энтропии  <img src="img/152.png" width="28" height="21"><strong> </strong>при  <img src="img/153.png" width="57" height="17"><strong> <img src="img/154.png" width="111" height="32" align="absmiddle"></strong>. Эту величину называют <em>предельной энтропией источника</em><strong>. </strong>Показано, что для стационарного бернуллиевского источника </p>
+<p>
+  <img src="img/155.png" width="164" height="24"></p>
+<p>
+  Для  практических применений важно, чтобы коды сообщений имели по возможности  наименьшую длину. Основной характеристикой неравномерного кода является  количество символов, затрачиваемых на кодирование одного сообщения.</p>
+
+<p><strong>Определение.</strong> Пусть имеется разделимый двоичный  побуквенный код для источника, порождающего символы алфавита <img src="img/136.png" width="150" height="26"> с вероятностями <img src="img/156.png" width="86" height="21">, состоящий из <strong><em>n</em></strong> кодовых слов с длинами <em><img src="img/92.png" width="64" height="20" align="absmiddle">.</em> <em>Средней длиной  кодового слова </em>называется величина <img src="img/157.png" width="111" height="48" align="absmiddle">, которая показывает среднее число кодовых букв на одну букву  источника.</p>
+
+<p><strong>Пример 4.1.2</strong>.  Пусть имеются два источника с одним и тем же алфавитом <img src="img/136.png" width="150" height="26"> и разными  вероятностными распределениями <img src="img/158.png" width="142" height="22"> и <img src="img/159.png" width="148" height="22">, которые кодируются одним и тем же кодом </p>
+<p>
+  <img src="img/160.png" width="284" height="37">.</p>
+
+<p> Средняя длина кодового  слова для разных источников будет различной</p>
+<p>
+<img src="img/161.png" width="325" height="116"></p>
+
+<p><strong>Определение.</strong> Побуквенный разделимый код  называется <em>оптимальным</em>, если средняя  длина кодового слова <em>минимальна</em> среди  всех побуквенных разделимых кодов для данного распределения вероятностей символов.</p>
+
+<p><strong>Определение.</strong> <em>Избыточностью кода </em>называется разность между средней длиной  кодового слова и предельной энтропией источника сообщений </p>
+<p>
+  <em><img src="img/162.png" width="196" height="28"></em></p>
+<p>
+  <em>Избыточность</em> кода является показателем  качества кода, оптимальный код обладает минимальной избыточностью. Задача  эффективного неискажающего сжатия заключается в построении кодов с наименьшей  избыточностью, у которых средняя длина кодового слова близка к энтропии  источника. К таким кодам относятся классические коды Хаффмана, Шеннона, Фано,  Гилберта-Мура и арифметический код.</p>
+<br>
+<a name=2 class="anchor"></a>
+<h3>4.2 Теоремы Шеннона</h3>
+<p>Взаимосвязь между средней длиной кодового  слова и энтропией дискретного вероятностного источника при побуквенном  кодировании выражает следующая теорема.</p>
+<p><strong>Теорема 1 </strong>(<em>Шеннон</em>). <em>Для бернуллиевкого источника с </em><em>алфавитом </em><img src="img/54.png" width="155" height="27" align="absmiddle"><em> и вероятностями </em><img src="img/156.png" width="86" height="21" align="texttop">, <img src="img/17.png" width="82" height="61" align="absmiddle"><em> и </em><em>любого  разделимого побуквенного кода средняя длина кодового слова всегда не меньше  энтропии  </em></p>
+<p>
+  <img src="img/163.png" width="153" height="27"></p>
+<p>
+  <em>и можно  построить разделимый побуквенный код, у которого средняя длина  кодового слова превосходит энтропию не больше,  чем на единицу:</em></p>
+<p>
+  <img src="img/164.png" width="188" height="26"></p>
+<p>Можно получить более сильные результаты, если кодовые  слова приписывать  не отдельным буквам, а  сообщениям (блокам из <em><strong>L</strong></em> букв) источника. Так, для  неравномерных блоковых кодов справедлива  следующая теорема.</p>
+<p><strong>Теорема 2</strong>. <em>Пусть  </em><img src="img/152.png" width="28" height="21" align="absmiddle"> - <em> энтропия на  букву в блоке длины </em><em><strong>L</strong></em><em> дискретного источник. Тогда существует  префиксный код для кодирования блоков длины </em><em><strong>L</strong></em><em>, такой, что средняя  длина кодового слова </em><img src="img/165.png" width="25" height="24" align="absmiddle"><em> будет  удовлетворять неравенствам:</em></p>
+<p>
+  <em><img src="img/166.png" width="166" height="48"></em></p>
+<p>
+  <em>Кроме того, в  случае бернуллиевского стационарного источника для любого<strong><img src="img/167.png" width="43" height="16"></strong> можно выбрать  достаточно большое </em><em><strong>L</strong></em><em>, чтобы величина </em><img src="img/165.png" width="25" height="24" align="absmiddle"><em> удовлетворяла  неравенствам:</em></p>
+<p>
+  <em><img src="img/168.png" width="310" height="24"></em></p>
+<p>
+  <em>и  левое неравенство для </em><img src="img/165.png" width="25" height="24" align="absmiddle"><em> никогда не  нарушается для разделимого кода.</em></p>
+<br>
+<a name=3 class="anchor"></a>
+<h3>4.3 Свойства оптимального побуквенного кода</h3>
+<p>Приведем  некоторые свойства, которыми обладает любой оптимальный побуквенный код.</p>
+<p><strong>Лемма 1.</strong> <em>Для оптимального кода с длинами  кодовых слов <img src="img/169.png" width="70" height="24" align="absmiddle"> верно соотношение <img src="img/170.png" width="134" height="21" align="absmiddle">,  если </em><img src="img/171.png" width="140" height="19" align="absmiddle"><em>.</em></p>
+<p><strong>Доказательство</strong> (от противного). Пусть есть  индексы <img src="img/172.png" width="13" height="17" align="texttop"> и <img src="img/173.png" width="14" height="22" align="absmiddle"> такие, что <em><img src="img/174.png" width="59" height="25" align="absmiddle"></em> при <em><img src="img/175.png" width="63" height="23" align="absmiddle"></em>. Тогда <br>
+</p>
+<p><img src="img/176.png" width="526" height="96"></p>
+<p>  т.е. если  поменяем местами <em><img src="img/177.png" width="15" height="23" align="absmiddle"></em> и <em><img src="img/178.png" width="20" height="25" align="absmiddle"></em>, то получим код, имеющий меньшую среднюю длину кодового  слова, что противоречит с оптимальности кода. Лемма 1 доказана.</p>
+<p><strong>Лемма 2</strong> <em>Пусть <img src="img/179.png" width="207" height="30" align="absmiddle"> – схема оптимального  префиксного кодирования для распределения вероятностей P, <img src="img/180.png" width="151" height="20" align="absmiddle">. Тогда среди элементарных кодов, имеющих максимальную длину,  существуют два, которые различаются только в последнем разряде.</em></p>
+<p><strong>Доказательство.</strong> Покажем, что в оптимальной схеме кодирования всегда найдется два  кодовых слова максимальной длины. Предположим обратное. Пусть кодовое слово  максимальной длины одно и имеет вид <img src="img/181.png" width="142" height="22" align="absmiddle">. Тогда длина любого элементарного кода не больше длины <em>b</em>, т.е. <img src="img/182.png" width="57" height="22" align="absmiddle">, <img src="img/183.png" width="82" height="20" align="absmiddle">. Поскольку схема кодирования префиксная, то кодовые слова <img src="img/184.png" width="77" height="24" align="absmiddle"> не являются префиксом <em>b</em>. С другой стороны, <em>b</em> не является префиксом кодовых слов <img src="img/184.png" width="77" height="24" align="absmiddle">. Таким образом, новая схема кодирования<em> <img src="img/185.png" width="202" height="24" align="absmiddle"></em> также является префиксной,  причем с меньшей средней длиной кодового слова <img src="img/186.png" width="166" height="23" align="absmiddle">, что противоречит оптимальности исходной схемы кодирования.  Пусть теперь два кодовых слова <img src="img/187.png" width="28" height="22" align="absmiddle"> и <img src="img/188.png" width="20" height="23" align="absmiddle"> максимальной длины  отличаются не в последнем разряде, т.е. <img src="img/189.png" width="371" height="23" align="absmiddle">. Причем <img src="img/190.png" width="58" height="22" align="absmiddle"> не являются префиксами  для других кодовых слов <img src="img/191.png" width="80" height="23" align="absmiddle"> и наоборот. Тогда  новая схема <img src="img/192.png" width="405" height="27" align="absmiddle"> также является  префиксной, причем <img src="img/193.png" width="166" height="24" align="absmiddle">, что противоречит оптимальности исходной схемы кодирования.  Лемма 2 доказана.</p>
+<br>
+<a name=4 class="anchor"></a>
+<h3>4.4 Оптимальный код Хаффмана</h3>
+<p>Метод оптимального побуквенного кодирования был  разработан в 1952&nbsp;г.  Д. Хаффманом. Оптимальный двоичный код Хаффмана обладает минимальной средней  длиной кодового слова среди всех побуквенных кодов для данного источника с алфавитом <img src="img/54.png" width="155" height="27" align="absmiddle"> и вероятностями <img src="img/142.png" width="203" height="31" align="absmiddle">.</p>
+<p>Алгоритм построения  оптимального кода Хаффмана основывается на утверждениях лемм предыдущего  параграфа и заключается в следующем: </p>
+
+  <p>1. Упорядочим символы исходного  алфавита <img src="img/54.png" width="155" height="27" align="absmiddle"> по убыванию их вероятностей <img src="img/171.png" width="140" height="19" align="absmiddle">.</p>
+  <p>2. Если <img src="img/194.png" width="99" height="24" align="absmiddle">,  то <img src="img/195.png" width="130" height="22" align="absmiddle">.</p>
+  <p>3. Если  и <img src="img/196.png" width="194" height="25" align="texttop">известны коды <img src="img/197.png" width="89" height="35" align="texttop">, <img src="img/198.png" width="88" height="20">, то для алфавита <img src="img/199.png" width="223" height="25" align="absmiddle"> с новыми символами <img src="img/200.png" width="69" height="25" align="absmiddle"><em> </em>вместо <img src="img/201.png" width="21" height="21" align="absmiddle">, и вероятностями <img src="img/202.png" width="110" height="25" align="absmiddle"><em>, </em>код символа <img src="img/201.png" width="21" height="21" align="absmiddle"> заменяется на коды <img src="img/203.png" width="80" height="28" align="absmiddle"> и<img src="img/204.png" width="79" height="26" align="absmiddle">.</p>
+
+<p><strong>Пример 4.4.1.</strong> Пусть источник имеет алфавит <img src="img/205.png" width="208" height="23" align="absmiddle"> с вероятностями</p>
+<p align="center"><img src="img/206.png" width="548" height="22"></p>
+<p>Здесь символы источника уже  упорядочены в соответствии с их вероятностями. Будем складывать две наименьшие  вероятности и включать суммарную вероятность на соответствующее место в упорядоченном  списке вероятностей до тех пор, пока в списке не останется два символа. Тогда  закодируем эти два символа 0 и 1. Далее кодовые слова достраиваются, как  показано на рисунке 4.</p>
+<p><img src="img/207.png" width="564" height="177"></p>
+<p>Рисунок 4 Процесс  построения кода Хаффмана</p>
+<p>&nbsp;</p>
+<p>Таблица 5 Код Хаффмана </p>
+<p><img src="img/208.png" width="315" height="171"></p>
+<p>&nbsp;</p>
+<p>Посчитаем среднюю длину,  построенного кода Хаффмана</p>
+<p>
+<img src="img/209.png" width="582" height="27"></p>
+<p>
+при этом  энтропия данного источника </p>
+<p>
+  <em><img src="img/210.png" width="560" height="54"></em></p>
+<p><img src="img/211.png" width="270" height="272"></p>
+
+<p>Рисунок 5 Кодовое дерево для кода Хаффмана </p>
+<p><br>
+  Код Хаффмана обычно строится  и хранится в виде двоичного дерева, в листьях которого находятся символы  алфавита, а на «ветвях» – 0 или 1. Тогда уникальным кодом символа <em>a</em> является  последовательность 0 и 1, которая получается при прохождении пути от корня  дерева к вершине с символом <em>a</em> (такой путь в дереве  единственный) (рис. 5).</p>
+<p>&nbsp;</p>
+<p><strong><em>Алгоритм на псевдокоде</em></strong></p>
+<p><br>
+  <em>Построение оптимального кода  Хаффмана (</em><em>n</em><em>,</em><em>P</em><em>)</em></p>
+<p>  Обозначим</p>
+<p> n –  количество символов исходного алфавита</p>
+<p> P –  массив вероятностей, упорядоченных по убыванию</p>
+<p> C –  матрица элементарных кодов</p>
+<p> L –  массив длин кодовых слов</p>
+<p> Huffman  (n,P)</p>
+<p> <img src="img/212.png" width="501" height="165"></p>
+<p>Функция Up (n,q)  находит в массиве P место, куда вставить число q, и вставляет его, сдвигая  вниз остальные элементы.</p>
+<p><img src="img/213.png" width="289" height="171"></p>
+<p>Процедура Down (n,j)<u> </u>формирует кодовые  слова.</p>
+<p><img src="img/214.png" width="739" height="259"></p>
+
+<br><br>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="gl3.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="lec_index.htm"></a></li>
+		 <li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="gl5.htm"></a></li>
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
